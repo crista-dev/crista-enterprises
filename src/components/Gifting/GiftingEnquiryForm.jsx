@@ -2,7 +2,9 @@ import { useId, useState } from 'react';
 import { ArrowRight, Check, Loader2, X } from 'lucide-react';
 import Button from '../Buttons/Button';
 import { BUDGET_BANDS, OCCASIONS, RECIPIENT_RANGES, getHamper } from '../../data/gifting';
-import { validateEnquiry, submitEnquiry } from '../../utils/validate';
+import { validateEnquiry, submitEnquiry, SUBMIT_ERRORS } from '../../utils/validate';
+import useSpamGuard from '../../hooks/useSpamGuard';
+import { site } from '../../data/site';
 import cn from '../../utils/cn';
 
 const REQUIRED = ['name', 'company', 'email', 'phone', 'occasion', 'recipients', 'budget'];
@@ -61,6 +63,8 @@ export default function GiftingEnquiryForm({ shortlist, onRemove, onClearShortli
   const [status, setStatus] = useState('idle');
   const [ref, setRef] = useState('');
   const [sent, setSent] = useState(null);
+  const [submitError, setSubmitError] = useState('');
+  const spam = useSpamGuard();
 
   const update = (k, val) => {
     const next = { ...v, [k]: val };
@@ -86,7 +90,13 @@ export default function GiftingEnquiryForm({ shortlist, onRemove, onClearShortli
       return;
     }
     setStatus('submitting');
-    const res = await submitEnquiry({ type: 'corporate-gifting', ...v, hampers: shortlist });
+    setSubmitError('');
+    const res = await submitEnquiry({ type: 'corporate-gifting', ...v, hampers: shortlist }, spam.guard());
+    if (!res.ok) {
+      setStatus('idle');
+      setSubmitError(res.error);
+      return;
+    }
     setRef(res.reference);
     setSent({ ...v, hampers: shortlist });
     setStatus('success');
@@ -109,14 +119,14 @@ export default function GiftingEnquiryForm({ shortlist, onRemove, onClearShortli
         {sent.hampers.length > 0 && (
           <p className="mt-4 text-[13px] text-muted">Shortlisted: {sent.hampers.map((x) => getHamper(x)?.name).filter(Boolean).join(', ')}</p>
         )}
-        <p className="mt-4 text-[12px] text-muted">Demo build — no data has been sent. Connect this form to your backend or CRM to receive enquiries.</p>
         <Button variant="outline" className="mt-8" onClick={() => { setStatus('idle'); setV(blank); setTouched({}); setErrors({}); }}>Send another enquiry</Button>
       </div>
     );
   }
 
   return (
-    <form noValidate onSubmit={onSubmit} className="grid grid-cols-1 gap-x-5 gap-y-6 md:grid-cols-2">
+    <form noValidate onSubmit={onSubmit} className="relative grid grid-cols-1 gap-x-5 gap-y-6 md:grid-cols-2">
+      {spam.field}
       {/* Shortlist */}
       <div className="md:col-span-2">
         <p className="field-label">Shortlisted hampers <span className="font-normal text-muted">(optional)</span></p>
@@ -183,6 +193,11 @@ export default function GiftingEnquiryForm({ shortlist, onRemove, onClearShortli
         <textarea {...fp('message')} rows={4} placeholder="Tell us about your gifting plan…" />
       </Field>
 
+      {submitError && (
+        <p role="alert" className="border-l-2 border-red-500 bg-red-50 px-4 py-3 text-[14px] leading-relaxed text-red-800 md:col-span-2">
+          {SUBMIT_ERRORS[submitError]}{submitError === 'failed' && <> <a href={site.contact.email.href} className="font-medium underline">{site.contact.email.value}</a>.</>}
+        </p>
+      )}
       <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between md:col-span-2">
         <p className="text-[12px] text-muted">By submitting, you agree to be contacted about this enquiry.</p>
         <Button type="submit" size="lg" disabled={status === 'submitting'} icon={status === 'submitting' ? undefined : ArrowRight} className="w-full sm:w-auto">

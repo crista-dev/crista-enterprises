@@ -1,12 +1,16 @@
-# Crista Enterprises: serve pre-rendered pages, clean URLs, real 404s
+# Crista Enterprises: pre-rendered pages, clean URLs, real 404s, security headers
 DirectorySlash Off
-Options -MultiViews
+Options -MultiViews -Indexes
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
+ServerSignature Off
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Block hidden files/folders (.git, .env, ...) except .well-known
+  RewriteRule (^|/)\.(?!well-known/) - [F,L]
 
   # Drop trailing slash (except the homepage)
   RewriteCond %{REQUEST_URI} !^/$
@@ -21,8 +25,24 @@ ErrorDocument 404 /404.html
   RewriteRule ^ /%1 [R=301,L]
 </IfModule>
 
-# Caching: hashed assets for a year, pages always fresh
+# Never serve source maps, backups, logs or config files
+<FilesMatch "\.(map|bak|old|orig|sql|log|ini|sh|env|lock|yml|yaml|config)$">
+  Require all denied
+</FilesMatch>
+
 <IfModule mod_headers.c>
+  # --- Security headers ---
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+
+  # --- Caching: hashed assets for a year, pages always fresh ---
   <FilesMatch "\.(js|css|woff2?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>

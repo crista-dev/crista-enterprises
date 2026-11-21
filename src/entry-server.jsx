@@ -6,7 +6,7 @@
 import { StrictMode } from 'react';
 import { Writable } from 'node:stream';
 import { renderToPipeableStream } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import App from './App';
 
 export { getRoutes, NOT_FOUND } from './seo/routes';
@@ -30,7 +30,7 @@ export function render(url) {
     });
     const stream = renderToPipeableStream(
       <StrictMode>
-        <StaticRouter location={url} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <StaticRouter location={url}>
           <App />
         </StaticRouter>
       </StrictMode>,

@@ -2,7 +2,9 @@ import { useId, useMemo, useState } from 'react';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { lightingProducts, gymProducts } from '../../data/products';
 import { ENQUIRY_TYPES, QUANTITY_RANGES } from '../../data/site';
-import { validateEnquiry, submitEnquiry } from '../../utils/validate';
+import { validateEnquiry, submitEnquiry, SUBMIT_ERRORS } from '../../utils/validate';
+import useSpamGuard from '../../hooks/useSpamGuard';
+import { site } from '../../data/site';
 import Button from '../Buttons/Button';
 import cn from '../../utils/cn';
 
@@ -56,6 +58,8 @@ export default function EnquiryForm({ variant = 'quote', initial = {}, onDone, c
   const [touched, setTouched] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting | success
   const [result, setResult] = useState(null);
+  const [submitError, setSubmitError] = useState('');
+  const spam = useSpamGuard();
 
   const productOptions = useMemo(
     () => [
@@ -87,7 +91,13 @@ export default function EnquiryForm({ variant = 'quote', initial = {}, onDone, c
       return;
     }
     setStatus('submitting');
-    const res = await submitEnquiry(values);
+    setSubmitError('');
+    const res = await submitEnquiry({ type: isContact ? 'contact' : 'quote', ...values }, spam.guard());
+    if (!res.ok) {
+      setStatus('idle');
+      setSubmitError(res.error);
+      return;
+    }
     setResult(res);
     setStatus('success');
   };
@@ -119,7 +129,6 @@ export default function EnquiryForm({ variant = 'quote', initial = {}, onDone, c
           <div className="bg-white p-4"><dt className="text-muted">Reference</dt><dd className="mt-1 font-medium tabular text-ink">{result?.reference}</dd></div>
           <div className="bg-white p-4"><dt className="text-muted">Interest</dt><dd className="mt-1 font-medium text-ink">{values.product ? productLabel(values.product) : ENQUIRY_TYPES.find((t) => t.value === values.enquiryType)?.label}</dd></div>
         </dl>
-        <p className="mt-4 text-[12px] text-muted">Demo build — no data has been sent. Connect this form to your backend or CRM to receive enquiries.</p>
         <div className="mt-8 flex flex-wrap gap-3">
           {onDone && <Button onClick={onDone}>Done</Button>}
           <Button variant="outline" onClick={() => { setStatus('idle'); setValues((v) => ({ ...v, message: '', quantity: '' })); setTouched({}); }}>
@@ -133,7 +142,8 @@ export default function EnquiryForm({ variant = 'quote', initial = {}, onDone, c
   const cols = compact ? 'sm:grid-cols-2' : 'md:grid-cols-2';
 
   return (
-    <form noValidate onSubmit={onSubmit} className={cn('grid grid-cols-1 gap-x-5 gap-y-5', cols)}>
+    <form noValidate onSubmit={onSubmit} className={cn('relative grid grid-cols-1 gap-x-5 gap-y-5', cols)}>
+      {spam.field}
       {isContact && (
         <Field id={id('enquiryType')} label="Enquiry type" required error={err('enquiryType')}>
           <select {...fieldProps('enquiryType')}>
@@ -190,6 +200,11 @@ export default function EnquiryForm({ variant = 'quote', initial = {}, onDone, c
       <Field id={id('message')} label={isContact ? 'Message' : 'Additional requirements'} required={required.includes('message')} error={err('message')} className="sm:col-span-2 md:col-span-2" hint="Specifications, site details, timelines or delivery location help us respond accurately.">
         <textarea {...fieldProps('message')} rows={compact ? 3 : 5} placeholder={isContact ? 'Tell us what your business needs…' : gymProducts.some((g) => g.slug === values.product) || values.product === 'general-gym' ? 'e.g. site type (park, society, school), number of stations, colours, delivery location' : 'e.g. colour temperature, pole height, project location, delivery timeline'} />
       </Field>
+      {submitError && (
+        <p role="alert" className="border-l-2 border-red-500 bg-red-50 px-4 py-3 text-[14px] leading-relaxed text-red-800 sm:col-span-2 md:col-span-2">
+          {SUBMIT_ERRORS[submitError]}{submitError === 'failed' && <> <a href={site.contact.email.href} className="font-medium underline">{site.contact.email.value}</a>.</>}
+        </p>
+      )}
       <div className="flex flex-col-reverse items-start gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between md:col-span-2">
         <p className="text-[12px] leading-relaxed text-muted">By submitting, you agree to be contacted about this enquiry.</p>
         <Button type="submit" size="lg" disabled={status === 'submitting'} icon={status === 'submitting' ? undefined : ArrowRight} className="w-full sm:w-auto">
