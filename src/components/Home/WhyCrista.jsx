@@ -17,7 +17,7 @@ export default function WhyCrista() {
         <div className="lg:col-span-4">
           <Reveal className="lg:sticky lg:top-[calc(var(--header-h)+40px)]">
             <div className="flex items-center gap-4 border-t border-line pt-4">
-              <span className="tabular text-eyebrow font-medium text-accent-ink">04</span>
+              
               <span className="eyebrow">Why choose Crista</span>
             </div>
             <h2 id="why-title" className="display-md mt-8">Your Trusted Partner for Business Supplies.</h2>

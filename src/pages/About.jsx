@@ -53,7 +53,7 @@ export default function About() {
         <div className="wrap grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <div className="flex items-center gap-4 border-t border-line pt-4">
-              <span className="tabular text-eyebrow font-medium text-accent-ink">01</span>
+              
               <span className="eyebrow">Who we are</span>
             </div>
           </Reveal>

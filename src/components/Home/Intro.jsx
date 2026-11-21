@@ -22,7 +22,7 @@ export default function Intro() {
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-6">
           <Reveal>
             <div className="flex items-center gap-4 border-t border-line pt-4">
-              <span className="tabular text-eyebrow font-medium text-accent-ink">02</span>
+              
               <span className="eyebrow">About Crista Enterprises</span>
             </div>
             <h2 id="intro-title" className="display-lg mt-8">Products That Power Progress.</h2>
