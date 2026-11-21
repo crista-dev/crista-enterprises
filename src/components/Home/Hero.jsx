@@ -24,14 +24,14 @@ export default function Hero() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
         <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/40 via-transparent to-black/30 md:block" aria-hidden="true" />
 
-        <div className="flex min-h-[calc(100svh-var(--header-h)-16px)] flex-col justify-end px-6 pb-10 pt-32 sm:px-12 sm:pb-14 lg:min-h-[min(880px,calc(100svh-var(--header-h)-36px-24px))] lg:px-20 lg:pb-20">
+        <div className="flex min-h-[calc(100svh-var(--header-h)-16px)] flex-col justify-end px-6 pb-10 pt-32 sm:px-12 sm:pb-14 lg:min-h-[min(880px,calc(100svh-var(--header-h)-24px))] lg:px-20 lg:pb-20">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <motion.h1
               id="hero-title"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease }}
-              className="font-display text-[2.6rem] font-normal uppercase leading-[1.02] tracking-[-0.01em] sm:text-6xl lg:col-span-7 lg:text-[4.75rem]"
+              className="font-display text-[2rem] font-normal uppercase leading-[1.08] tracking-[-0.005em] text-white sm:text-[2.75rem] lg:col-span-7 lg:text-[3.5rem]"
             >
               Powering spaces
               <br />

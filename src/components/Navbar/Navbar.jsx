@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, Search } from 'lucide-react';
 import Logo from '../Common/Logo';
@@ -78,18 +78,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Utility bar */}
-      <div className="hidden bg-ink text-white/70 lg:block">
-        <div className="wrap flex h-9 items-center justify-between text-[12px]">
-          <p className="tracking-[0.02em]">B2B supply of commercial lighting &amp; fitness equipment</p>
-          <ul className="flex items-center gap-6">
-            <li><Link to="/contact?type=bulk" className="transition-colors hover:text-white">Bulk &amp; project orders</Link></li>
-            <li><Link to="/contact?type=dealer" className="transition-colors hover:text-white">Become a dealer</Link></li>
-            <li><Link to="/contact" className="transition-colors hover:text-white">Contact sales</Link></li>
-          </ul>
-        </div>
-      </div>
-
       <header
         className={cn(
           'sticky top-0 z-50 border-b bg-white/95 backdrop-blur-md transition-[border-color,box-shadow] duration-300',
