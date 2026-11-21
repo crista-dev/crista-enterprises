@@ -57,6 +57,7 @@ export const footerNav = {
     { label: 'About Us', to: '/about' },
     { label: 'Our Products', to: '/products' },
     { label: 'Industries', to: '/industries' },
+    { label: 'FAQs', to: '/faq' },
     { label: 'Contact Us', to: '/contact' },
   ],
   support: [

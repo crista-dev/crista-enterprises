@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import SeoManager from '../seo/SeoManager';
 
 function ScrollManager() {
   const { pathname } = useLocation();
@@ -18,6 +19,7 @@ export default function MainLayout() {
         Skip to content
       </a>
       <ScrollManager />
+      <SeoManager />
       <Navbar />
       <main id="main" className="flex-1">
         <Outlet />

@@ -14,6 +14,7 @@ const AllProducts = lazy(() => import('./pages/Products/AllProducts'));
 const ProductDetails = lazy(() => import('./pages/Products/ProductDetails'));
 const CorporateGifting = lazy(() => import('./pages/CorporateGifting'));
 const Legal = lazy(() => import('./pages/Legal'));
+const Faq = lazy(() => import('./pages/Faq'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -44,6 +45,7 @@ export default function App() {
               <Route path="corporate-gifting" element={<CorporateGifting />} />
               <Route path="privacy-policy" element={<Legal kind="privacy" />} />
               <Route path="terms" element={<Legal kind="terms" />} />
+              <Route path="faq" element={<Faq />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

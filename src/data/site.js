@@ -4,6 +4,8 @@
  */
 export const site = {
   name: 'Crista Enterprises',
+  /** Live domain — used for canonical URLs, sitemap and structured data. */
+  url: 'https://cristaenterprises.com',
   tagline: 'Ideas into impact.',
   description:
     'Crista Enterprises supplies commercial and industrial LED lighting and outdoor gym and playground equipment to contractors, institutions, facilities and dealers.',
