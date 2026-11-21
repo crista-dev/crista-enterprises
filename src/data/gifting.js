@@ -42,7 +42,7 @@ export const CUSTOMISATION = [
   { title: 'Bulk & multi-location dispatch', text: 'Delivery to one office or several locations, coordinated on request.' },
 ];
 
-const h = (p) => ({ ...p, sample: true });
+const h = (p) => ({ image: `/hampers/${p.id}.png`, ...p, sample: true });
 
 export const hampers = [
   h({

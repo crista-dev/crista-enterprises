@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { PALETTES } from '../../data/gifting';
 import cn from '../../utils/cn';
 
@@ -148,7 +149,7 @@ function Tag({ p, y }) {
   );
 }
 
-export default function HamperRender({ hamper, className, branded = true }) {
+function HamperDrawing({ hamper, className, branded = true }) {
   const p = PALETTES[hamper.collection] ?? PALETTES.client;
   const items = hamper.items.slice(0, 4);
   const xs = SLOTS[items.length] ?? SLOTS[4];
@@ -165,5 +166,21 @@ export default function HamperRender({ hamper, className, branded = true }) {
         <Front type={hamper.container} p={p} branded={branded && hamper.container !== 'tray'} />
       </svg>
     </div>
+  );
+}
+
+/** Uses the hamper photo (public/hampers/<id>.webp) and falls back to the drawing if it is missing. */
+export default function HamperRender({ hamper, className, branded = true }) {
+  const [failed, setFailed] = useState(false);
+  if (!hamper.image || failed) return <HamperDrawing hamper={hamper} className={className} branded={branded} />;
+  return (
+    <img
+      src={hamper.image}
+      alt={hamper.name}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+      className={cn('h-full w-full object-cover', className)}
+    />
   );
 }
