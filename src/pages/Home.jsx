@@ -5,7 +5,6 @@ import Intro from '../components/Home/Intro';
 import Divisions from '../components/Home/Divisions';
 import FeaturedLighting from '../components/Home/FeaturedLighting';
 import IndustriesShowcase from '../components/Home/IndustriesShowcase';
-import EnquiryCTA from '../components/Home/EnquiryCTA';
 
 export default function Home() {
   usePageMeta(null);
@@ -17,7 +16,6 @@ export default function Home() {
       <Intro />
       <FeaturedLighting />
       <IndustriesShowcase />
-      <EnquiryCTA />
     </>
   );
 }
