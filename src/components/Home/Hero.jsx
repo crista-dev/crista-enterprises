@@ -7,7 +7,7 @@ const ease = [0.2, 0.7, 0.2, 1];
 export default function Hero() {
   return (
     <section aria-labelledby="hero-title" className="bg-paper p-2.5 sm:p-4">
-      <div className="relative isolate overflow-hidden rounded-2xl bg-ink text-white sm:rounded-3xl">
+      <div className="relative isolate overflow-hidden rounded-lg bg-ink text-white sm:rounded-xl">
         {/* Background: phone image below 768px, desktop image above */}
         <picture className="absolute inset-0 -z-20">
           <source media="(max-width: 767px)" srcSet="/crista-enterprises-bg-phone.png" />

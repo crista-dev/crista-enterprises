@@ -10,7 +10,7 @@ const DIVS = [
     n: 'Division 01',
     title: 'Crista Lights',
     text: 'Commercial and industrial LED lighting for roads, sites, campuses and facilities.',
-    image: 'streetNight',
+    image: 'lightsDivision',
     to: '/products/lighting',
     cta: 'Explore Lighting Solutions',
     links: [

@@ -15,6 +15,11 @@ const u = (id, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
 
 export const images = {
+  lightsDivision: {
+    src: '/crista-lights-home-bg.png',
+    alt: 'Modern boulevard lit by LED street lights at dusk',
+    tone: 'dark',
+  },
   heroNight: {
     src: u('photo-1519501025264-65ba15a82390', 2200),
     alt: 'City road illuminated by street lighting at night',
