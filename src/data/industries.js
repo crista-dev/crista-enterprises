@@ -4,7 +4,7 @@ export const industries = [
     name: 'Infrastructure',
     image: 'powerLines',
     summary: 'Street and area lighting for roads, highways, townships and public works.',
-    products: ['LED Street Lights', 'Solar Street Lights', 'LED Flood Lights'],
+    products: ['LED Street Lights', 'LED Flood Lights'],
   },
   {
     id: 'construction',
@@ -17,8 +17,8 @@ export const industries = [
     id: 'industrial',
     name: 'Industrial Facilities',
     image: 'warehouse',
-    summary: 'High-bay and yard lighting for factories, warehouses and logistics hubs.',
-    products: ['LED High Bay', 'LED Flood Lights'],
+    summary: 'Yard, perimeter and access-road lighting for factories, warehouses and logistics hubs.',
+    products: ['LED Flood Lights', 'LED Street Lights'],
   },
   {
     id: 'commercial',
@@ -32,7 +32,7 @@ export const industries = [
     name: 'Educational Institutions',
     image: 'campus',
     summary: 'Campus lighting, open-air gyms and playgrounds for schools and colleges.',
-    products: ['Solar Street Lights', 'Outdoor Gym Equipment', 'Playground Equipment'],
+    products: ['LED Street Lights', 'Outdoor Gym Equipment', 'Playground Equipment'],
   },
   {
     id: 'fitness',
@@ -46,6 +46,6 @@ export const industries = [
     name: 'Hospitality',
     image: 'hotel',
     summary: 'Resort play areas and outdoor fitness zones plus exterior, driveway and landscape lighting.',
-    products: ['Playground Equipment', 'LED Flood Lights', 'Solar Street Lights'],
+    products: ['Playground Equipment', 'LED Flood Lights', 'LED Street Lights'],
   },
 ];

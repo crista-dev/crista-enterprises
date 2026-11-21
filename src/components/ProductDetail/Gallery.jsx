@@ -2,12 +2,16 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ProductRender from '../ProductRender/ProductRender';
+import ProductVisual from '../ProductRender/ProductVisual';
 import SmartImage from '../Common/SmartImage';
 import cn from '../../utils/cn';
 
 /** Product image gallery with thumbnails, arrows and keyboard support. */
 export default function Gallery({ product }) {
-  const slides = [
+  const slides = product.image ? [
+    { id: 'studio', label: 'Product view', node: <div className="h-full w-full bg-white p-6 sm:p-10"><ProductVisual product={product} /></div> },
+    { id: 'application', label: 'Application', node: <SmartImage image={product.photo} className="h-full w-full" /> },
+  ] : [
     { id: 'studio', label: 'Product view', node: <ProductRender kind={product.render.kind} size={product.render.size} label={product.name} /> },
     { id: 'technical', label: 'Technical view', node: <ProductRender kind={product.render.kind} size={product.render.size} view="technical" label={`${product.name} technical`} /> },
     { id: 'detail', label: 'Detail', node: <ProductRender kind={product.render.kind} size={product.render.size} view="detail" label={`${product.name} detail`} /> },
@@ -37,7 +41,7 @@ export default function Gallery({ product }) {
           <button type="button" onClick={() => go(i + 1)} className="flex h-10 w-10 items-center justify-center bg-white text-ink transition-colors hover:bg-ink hover:text-white" aria-label="Next image"><ChevronRight className="h-5 w-5" strokeWidth={1.5} /></button>
         </div>
       </div>
-      <div className="mt-3 grid grid-cols-4 gap-3" role="tablist" aria-label="Choose image">
+      <div className={cn('mt-3 grid gap-3', slides.length > 2 ? 'grid-cols-4' : 'grid-cols-4 sm:grid-cols-5')} role="tablist" aria-label="Choose image">
         {slides.map((s, n) => (
           <button
             key={s.id}
@@ -52,7 +56,7 @@ export default function Gallery({ product }) {
           </button>
         ))}
       </div>
-      <p className="mt-3 text-[12px] text-muted">Renders are representative. Actual product photography to be supplied.</p>
+      <p className="mt-3 text-[12px] text-muted">{product.image ? 'Application image is representative.' : 'Renders are representative. Actual product photography to be supplied.'}</p>
     </div>
   );
 }

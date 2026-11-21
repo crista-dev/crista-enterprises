@@ -16,10 +16,12 @@ function SampleNotice({ className }) {
   return (
     <p className={`flex items-start gap-2.5 bg-mist px-4 py-3 text-[13px] leading-relaxed text-charcoal/80 ${className ?? ''}`}>
       <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted" strokeWidth={1.75} aria-hidden="true" />
-      <span><strong className="font-medium text-ink">Sample specification.</strong> Values are indicative placeholders, not verified product data. Final specifications are confirmed in your quotation.</span>
+      <span><strong className="font-medium text-ink">As per Crista product specification sheet.</strong> Lumen output is nominal (wattage × efficacy). Final specifications are confirmed in your quotation.</span>
     </p>
   );
 }
+
+const KEY_SPECS = ['Power', 'Lumen output (nominal)', 'Light colour', 'Colour temperature', 'Sensor', 'IP protection', 'Surge protection', 'Warranty'];
 
 export default function ProductDetails() {
   const { slug } = useParams();
@@ -32,7 +34,7 @@ export default function ProductDetails() {
 
   const division = DIVISIONS[p.division];
   const related = getRelated(p, 4);
-  const keySpecs = p.specs.slice(0, 6);
+  const keySpecs = p.specs.filter((s) => KEY_SPECS.includes(s.label)).slice(0, 6);
 
   return (
     <>
@@ -50,6 +52,7 @@ export default function ProductDetails() {
             <span className="h-px w-6 bg-accent" aria-hidden="true" />{division.name} · {p.categoryName}
           </p>
           <h1 className="mt-5 font-display text-[34px] font-medium leading-[1.08] tracking-[-0.03em] sm:text-[44px]">{p.name}</h1>
+          {p.model && <p className="mt-3 text-[13px] uppercase tracking-[0.14em] text-muted">Model {p.model}</p>}
           <p className="mt-5 text-[16px] leading-relaxed text-charcoal/80">{p.summary}</p>
 
           <div className="mt-8">
@@ -91,6 +94,15 @@ export default function ProductDetails() {
         <h2 className="display-md lg:col-span-4">Overview</h2>
         <Reveal className="lg:col-span-7 lg:col-start-6">
           <p className="text-[17px] leading-relaxed text-charcoal/85">{p.description}</p>
+          {p.features.length > 0 && (
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {p.features.map((f) => (
+                <li key={f} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-ink">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-accent-ink" aria-hidden="true" />{f}
+                </li>
+              ))}
+            </ul>
+          )}
           <dl className="mt-10 grid grid-cols-3 border-y border-line">
             {p.highlights.map((h, i) => (
               <div key={h.label} className={`py-5 ${i ? 'border-l border-line pl-5' : ''}`}>
@@ -110,7 +122,7 @@ export default function ProductDetails() {
           </div>
           <div className="lg:col-span-7 lg:col-start-6">
             <table className="w-full border-collapse text-left text-[15px]">
-              <caption className="sr-only">{p.name} technical specifications (sample data)</caption>
+              <caption className="sr-only">{p.name} technical specifications</caption>
               <tbody>
                 {p.specs.map((s) => (
                   <tr key={s.label} className="border-b border-line first:border-t">

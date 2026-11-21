@@ -9,7 +9,7 @@ import useEscape from '../../hooks/useEscape';
 import ProductVisual from '../ProductRender/ProductVisual';
 import cn from '../../utils/cn';
 
-const SUGGESTIONS = ['Street light', 'Flood light', 'Solar', 'High bay', 'Outdoor gym', 'Slide'];
+const SUGGESTIONS = ['Street light', 'Flood light', '50W', '200W', 'Outdoor gym', 'Slide'];
 
 export default function SearchOverlay({ open, onClose }) {
   const [q, setQ] = useState('');

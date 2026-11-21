@@ -3,9 +3,8 @@
  * ------------------------------------------------------------
  * Shaped so it can later be replaced 1:1 by an API response.
  *
- * IMPORTANT: all technical specifications below are SAMPLE DATA for layout
- * purposes (`specStatus: 'sample'`). The UI labels them as such. Replace with
- * verified manufacturer data before publishing.
+ * Lighting specs come from Crista product specification sheets; gym specs
+ * from the standard model catalogue.
  */
 
 export const DIVISIONS = {
@@ -26,8 +25,7 @@ export const DIVISIONS = {
 export const LIGHTING_CATEGORIES = [
   { slug: 'street', name: 'LED Street Lights' },
   { slug: 'flood', name: 'LED Flood Lights' },
-  { slug: 'solar', name: 'Solar Street Lights' },
-  { slug: 'industrial', name: 'Industrial Lighting' },
+  // Add more categories here when products are added (e.g. solar, industrial)
 ];
 
 export const GYM_CATEGORIES = [
@@ -40,139 +38,171 @@ export const GYM_CATEGORIES = [
 ];
 
 /* ---------- Lighting helpers ---------- */
-const lightSpecs = ({ watt, efficacy = 130, cct = '5700K (3000K / 4000K on request)', ip = 'IP66', mounting, material = 'Die-cast aluminium housing, toughened glass / PC lens', led = 'SMD 3030', voltage = 'AC 100–300V, 50/60Hz' }) => [
-  { label: 'Wattage', value: `${watt}W` },
-  { label: 'Lumen output', value: `≈ ${(watt * efficacy).toLocaleString('en-IN')} lm` },
-  { label: 'LED type', value: led },
-  { label: 'Input voltage', value: voltage },
-  { label: 'Colour temperature', value: cct },
-  { label: 'IP rating', value: ip },
-  { label: 'Material', value: material },
-  { label: 'Mounting type', value: mounting },
-  { label: 'Warranty', value: 'Confirmed per order / project' },
-];
+/*
+ * Crista Lights range. Specifications are taken from the Crista product
+ * specification sheets. Product photos live in public/lighting/.
+ * To add a product: copy one entry below and change its values.
+ */
+const COMMON_LIGHT = {
+  thd: '10%',
+  pf: '> 0.90',
+  frequency: '50Hz ± 3%',
+  ip: 'IP66 (water & dust proof)',
+  body: 'Pressure die-cast aluminium',
+  temp: '−30°C to 50°C',
+  cri: '> 80',
+  cert: 'ISO certified',
+  warranty: '2 years',
+};
 
-const street = (watt, extra = {}) => ({
-  slug: `${watt}w-led-street-light`,
-  name: `${watt}W LED Street Light`,
-  division: 'lighting',
-  category: 'street',
-  type: 'Pole Mount',
-  wattage: watt,
-  render: { kind: 'street', size: watt },
-  photo: watt >= 150 ? 'heroNight' : 'streetNight',
-  summary:
-    watt <= 50
-      ? 'Compact street luminaire for internal roads, campuses, lanes and parking areas.'
-      : watt <= 100
-        ? 'Mid-power street luminaire for urban roads, colonies and industrial estates.'
-        : 'High-output street luminaire for arterial roads, highways and wide carriageways.',
-  description: `The ${watt}W LED Street Light is designed for dependable outdoor illumination with a sealed, heat-dissipating housing and wide-distribution optics. It suits municipal, institutional and private infrastructure projects where consistent light levels and low maintenance matter. Optics, colour temperature and mounting accessories can be specified per project.`,
-  highlights: [
-    { label: 'Output', value: `≈ ${(watt * 130).toLocaleString('en-IN')} lm` },
-    { label: 'Protection', value: 'IP66' },
-    { label: 'Mount', value: 'Side-entry pole' },
-  ],
-  specs: lightSpecs({ watt, mounting: 'Side-entry, Ø40–60 mm pole spigot' }),
-  applications: ['Urban and arterial roads', 'Campus and township roads', 'Industrial estates', 'Parking areas'],
-  ...extra,
-});
+const light = (p) => {
+  const c = { ...COMMON_LIGHT, ...p };
+  const lumens = (c.wattage * c.efficacy).toLocaleString('en-IN');
+  const specs = [
+    { label: 'Model no.', value: c.model },
+    { label: 'Power', value: `${c.wattage}W` },
+    { label: 'LED type', value: c.ledType },
+    { label: 'No. of LEDs', value: c.ledCount },
+    { label: 'Luminous efficacy', value: `${c.efficacy} lm/W` },
+    { label: 'Lumen output (nominal)', value: `≈ ${lumens} lm` },
+    { label: c.cct ? 'Colour temperature' : 'Light colour', value: c.cct ?? c.colour },
+    { label: 'Colour rendering (CRI)', value: c.cri },
+    c.sensor && { label: 'Sensor', value: 'Photocell sensor (automatic dusk-to-dawn ON/OFF)' },
+    { label: 'Rated supply voltage', value: c.rated },
+    { label: 'Input voltage range', value: c.inputRange },
+    { label: 'Input frequency', value: c.frequency },
+    { label: 'Power factor', value: c.pf },
+    { label: 'Total harmonic distortion', value: c.thd },
+    { label: 'Surge protection', value: c.surge },
+    { label: 'IP protection', value: c.ip },
+    c.ik && { label: 'Impact resistance', value: c.ik },
+    { label: 'Body material', value: c.body },
+    { label: 'Working temperature', value: c.temp },
+    c.life && { label: 'Rated life', value: c.life },
+    { label: 'LED make', value: c.ledMake },
+    { label: 'Certification', value: c.cert },
+    { label: 'Warranty', value: c.warranty },
+  ].filter(Boolean);
 
-const flood = (watt, extra = {}) => ({
-  slug: `${watt}w-led-flood-light`,
-  name: `${watt}W LED Flood Light`,
-  division: 'lighting',
-  category: 'flood',
-  type: 'Bracket Mount',
-  wattage: watt,
-  render: { kind: 'flood', size: watt },
-  photo: watt >= 300 ? 'stadium' : 'construction',
-  summary:
-    watt <= 200
-      ? 'Adjustable floodlight for façades, yards, signage and perimeter security.'
-      : 'High-power floodlight for sports grounds, ports, large yards and work sites.',
-  description: `The ${watt}W LED Flood Light combines a finned aluminium heat sink with an adjustable U-bracket for accurate aiming. It is suited to perimeter, façade, area and sports lighting where high, uniform output is required. Beam angle and colour temperature can be selected to match the application.`,
-  highlights: [
-    { label: 'Output', value: `≈ ${(watt * 125).toLocaleString('en-IN')} lm` },
-    { label: 'Protection', value: 'IP66' },
-    { label: 'Beam', value: '30° / 60° / 90°' },
-  ],
-  specs: lightSpecs({ watt, efficacy: 125, mounting: 'Adjustable U-bracket, wall / pole / cross-arm' }),
-  applications: ['Building façades', 'Yards and loading areas', 'Sports grounds', 'Perimeter security'],
-  ...extra,
-});
-
-const highbay = (watt, extra = {}) => ({
-  slug: `${watt}w-led-high-bay`,
-  name: `${watt}W LED High Bay`,
-  division: 'lighting',
-  category: 'industrial',
-  type: 'Suspended',
-  wattage: watt,
-  render: { kind: 'highbay', size: watt },
-  photo: watt >= 150 ? 'warehouse' : 'industrial',
-  summary: 'Round high-bay luminaire for factories, warehouses and large-span interiors.',
-  description: `The ${watt}W LED High Bay is built for mounting heights typically between 6 and 12 metres. A compact round body with radial heat-sink fins keeps the LED board cool in demanding industrial environments. Reflector and lens options allow the beam to be matched to rack aisles or open floors.`,
-  highlights: [
-    { label: 'Output', value: `≈ ${(watt * 135).toLocaleString('en-IN')} lm` },
-    { label: 'Protection', value: 'IP65' },
-    { label: 'Mount', value: 'Hook / chain' },
-  ],
-  specs: lightSpecs({ watt, efficacy: 135, ip: 'IP65', mounting: 'Suspension hook or chain; surface bracket optional', material: 'Die-cast aluminium body, PC / glass lens' }),
-  applications: ['Factories and workshops', 'Warehouses and logistics', 'Indoor sports halls', 'Exhibition spaces'],
-  ...extra,
-});
+  return {
+    division: 'lighting',
+    render: { kind: c.category === 'flood' ? 'flood' : 'street', size: c.wattage },
+    ...c,
+    specs,
+    highlights: [
+      { label: 'Output', value: `≈ ${lumens} lm` },
+      { label: 'Protection', value: 'IP66' },
+      { label: 'Warranty', value: '2 years' },
+    ],
+  };
+};
 
 export const lightingProducts = [
-  street(50, { featured: 1 }),
-  street(100, { featured: 2 }),
-  street(150, { featured: 3 }),
-  flood(150, { featured: 4 }),
-  flood(200, { featured: 5 }),
-  flood(300, { featured: 6 }),
-  flood(400, { featured: 7 }),
-  {
-    slug: 'solar-street-light',
-    name: 'Solar Street Light',
-    division: 'lighting',
-    category: 'solar',
-    type: 'Pole Mount',
-    wattage: 40,
-    featured: 8,
-    render: { kind: 'solar', size: 40 },
-    photo: 'solar',
-    summary: 'Off-grid street light with integrated panel, battery and dusk-to-dawn control.',
+  light({
+    slug: '50w-led-street-light',
+    name: '50W LED Street Light',
+    model: 'CLCE50A',
+    category: 'street',
+    type: 'Pole mount',
+    wattage: 50,
+    featured: 1,
+    image: '/lighting/Crista_50W_Street_Light.webp',
+    photo: 'streetNight',
+    ledType: '1W ultra-bright high-power SMD single-chip LED',
+    ledCount: '50 or more',
+    efficacy: 120,
+    colour: 'Warm white',
+    sensor: true,
+    rated: '220–240V AC, 50Hz',
+    inputRange: '120–270V AC',
+    surge: '6 kV',
+    ik: 'IK08',
+    ledMake: 'MS / Philips / Osram / Wipro LEDs',
+    summary: 'Warm-white street light with automatic dusk-to-dawn sensor for lanes, campuses and colonies.',
     description:
-      'The Solar Street Light is a self-contained luminaire that needs no grid connection or trenching. An integrated photovoltaic panel charges the battery during the day and a light sensor switches the lamp at dusk. Suitable for rural roads, campuses, parks and remote sites. Panel, battery and autonomy can be configured per project.',
-    highlights: [
-      { label: 'Power', value: 'Off-grid' },
-      { label: 'Protection', value: 'IP65' },
-      { label: 'Control', value: 'Dusk-to-dawn' },
+      'The Crista 50W LED Street Light delivers around 6,000 lumens of warm white light from 50+ high-power SMD LEDs at 120 lm/W. A built-in photocell sensor switches it on at dusk and off at dawn, so no timer or manual switching is needed. The pressure die-cast aluminium body is IP66 sealed against water and dust and IK08 rated against impact, and a wide 120–270V input range with 6 kV surge protection keeps it running reliably on fluctuating supply.',
+    features: [
+      'Automatic dusk-to-dawn operation with built-in photocell sensor',
+      'Warm white light, comfortable for residential streets and campuses',
+      'Wide 120–270V AC input range for unstable supply',
+      'IP66 water and dust protection with IK08 impact resistance',
+      'Branded LEDs (MS / Philips / Osram / Wipro) with CRI above 80',
+      '2-year warranty',
     ],
-    specs: [
-      { label: 'Wattage', value: '40W (LED load)' },
-      { label: 'Lumen output', value: '≈ 4,800 lm' },
-      { label: 'LED type', value: 'SMD 5050' },
-      { label: 'Input voltage', value: '12.8V LiFePO₄ battery system' },
-      { label: 'Solar panel', value: 'Monocrystalline, sized per site' },
-      { label: 'Colour temperature', value: '6000K' },
-      { label: 'IP rating', value: 'IP65' },
-      { label: 'Material', value: 'Aluminium alloy body' },
-      { label: 'Mounting type', value: 'Pole top / side arm' },
-      { label: 'Warranty', value: 'Confirmed per order / project' },
+    applications: ['Residential colonies and lanes', 'Campus and township roads', 'Parks and pathways', 'Parking areas'],
+  }),
+  light({
+    slug: '100w-led-street-light',
+    name: '100W LED Street Light',
+    model: 'CLCE100A',
+    category: 'street',
+    type: 'Pole mount',
+    wattage: 100,
+    featured: 2,
+    image: '/lighting/Crista_100W_Street_Light.webp',
+    photo: 'heroNight',
+    ledType: '1W high-power LED',
+    ledCount: 'More than 100',
+    efficacy: 120,
+    colour: 'Cool white',
+    sensor: true,
+    rated: '230V AC, 50Hz',
+    inputRange: '110–270V AC',
+    surge: '6 kV',
+    life: '50,000 burning hours',
+    ledMake: 'MS / Philips / Osram / Wipro LEDs',
+    summary: 'Cool-white street light with dusk-to-dawn sensor for main roads and industrial estates.',
+    description:
+      'The Crista 100W LED Street Light produces around 12,000 lumens of cool white light from over 100 high-power LEDs at 120 lm/W, giving bright, even coverage for wider roads. A built-in photocell sensor handles automatic dusk-to-dawn switching. Its IP66 die-cast aluminium body, 110–270V input range and 6 kV surge protection are built for continuous outdoor duty, with a rated life of 50,000 burning hours.',
+    features: [
+      'Automatic dusk-to-dawn operation with built-in photocell sensor',
+      'Cool white light for high visibility on main roads',
+      'Rated life of 50,000 burning hours',
+      'Wide 110–270V AC input range with 6 kV surge protection',
+      'IP66 pressure die-cast aluminium body',
+      'Branded LEDs (MS / Philips / Osram / Wipro), 2-year warranty',
     ],
-    applications: ['Rural and village roads', 'Parks and pathways', 'Campuses', 'Remote and off-grid sites'],
-  },
-  highbay(100),
-  highbay(150),
-  highbay(200),
+    applications: ['Main and arterial roads', 'Industrial estates', 'Highways and service roads', 'Large parking areas'],
+  }),
+  light({
+    slug: '200w-led-flood-light',
+    name: '200W LED Flood Light',
+    model: 'CLCE200A',
+    category: 'flood',
+    type: 'Bracket mount',
+    wattage: 200,
+    featured: 3,
+    image: '/lighting/Crista_200W_Flood_Light.webp',
+    photo: 'stadium',
+    ledType: '5W 5050 high-power LED',
+    ledCount: 'More than 70',
+    efficacy: 130,
+    cct: '5700K (cool daylight)',
+    rated: '230V AC, 50Hz',
+    inputRange: '110–270V AC',
+    surge: '10 kV',
+    life: '50,000 burning hours',
+    ledMake: 'Manlux LEDs',
+    summary: 'High-output 5700K flood light for grounds, yards, façades and perimeter security.',
+    description:
+      'The Crista 200W LED Flood Light delivers around 26,000 lumens of crisp 5700K daylight from 5W 5050 high-power LEDs at 130 lm/W. It is designed for large areas that need strong, uniform light, such as sports grounds, yards, building façades and perimeters. Heavy 10 kV surge protection, an IP66 die-cast aluminium body and a 50,000-hour rated life make it suited to demanding outdoor sites.',
+    features: [
+      'High 130 lm/W efficacy, around 26,000 lumens',
+      '5700K cool daylight for clear visibility over large areas',
+      'Heavy-duty 10 kV surge protection',
+      'IP66 pressure die-cast aluminium body',
+      'Rated life of 50,000 burning hours',
+      '2-year warranty',
+    ],
+    applications: ['Sports grounds and stadiums', 'Yards and loading areas', 'Building façades', 'Perimeter and security lighting'],
+  }),
 ];
 
 /* ---------- Gym helpers ---------- */
 /*
  * Outdoor gym & playground range. Construction data is the standard model
  * specification; site-specific dimensions and colours are confirmed per quote.
- * Product photos: public/products/gym/<slug>.webp (falls back to a placeholder).
+ * Product photos: public/gym-equipments/<slug>.webp (falls back to a placeholder).
  */
 const BUILD = {
   bearings: 'SKF bearings',
@@ -531,7 +561,7 @@ export const gymProducts = [
 /* ---------- Shared ---------- */
 const withMeta = (p) => ({
   ...p,
-  specStatus: p.division === 'gym' ? 'catalogue' : 'sample',
+  specStatus: 'datasheet',
   categoryName: [...LIGHTING_CATEGORIES, ...GYM_CATEGORIES].find((c) => c.slug === p.category)?.name ?? '',
   url: `/products/${p.slug}`,
   features: p.features ?? [],

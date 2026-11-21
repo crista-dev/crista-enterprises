@@ -11,8 +11,6 @@ const productLink = (name) => {
   const map = {
     'LED Street Lights': '/products/lighting?category=street',
     'LED Flood Lights': '/products/lighting?category=flood',
-    'Solar Street Lights': '/products/lighting?category=solar',
-    'LED High Bay': '/products/lighting?category=industrial',
     'Outdoor Gym Equipment': '/products/gym-equipment',
     'Strength Stations': '/products/gym-equipment?category=strength',
     'Cardio Stations': '/products/gym-equipment?category=cardio',

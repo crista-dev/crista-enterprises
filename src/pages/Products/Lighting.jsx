@@ -9,14 +9,14 @@ import { SORTS } from '../../utils/catalogue';
 const products = getByDivision('lighting');
 
 const RANGE = [
-  { k: 'Street', v: '50W – 150W' },
-  { k: 'Flood', v: '150W – 400W' },
-  { k: 'Solar', v: 'Off-grid' },
-  { k: 'High bay', v: '100W – 200W' },
+  { k: 'Street lights', v: '50W · 100W' },
+  { k: 'Flood lights', v: '200W' },
+  { k: 'Protection', v: 'IP66' },
+  { k: 'Warranty', v: '2 years' },
 ];
 
 export default function Lighting() {
-  usePageMeta('Professional Lighting Solutions', 'LED street lights, flood lights, solar street lights and industrial high-bay lighting for infrastructure, construction and industrial projects.');
+  usePageMeta('Professional Lighting Solutions', 'Crista LED street lights and flood lights: IP66 die-cast aluminium, up to 130 lm/W, surge protected, with dusk-to-dawn sensors and a 2-year warranty.');
   return (
     <>
       <section className="relative isolate overflow-hidden bg-ink text-white">
@@ -29,8 +29,8 @@ export default function Lighting() {
               <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-white/60"><span className="h-px w-6 bg-accent" aria-hidden="true" />Crista Lights · Division 01</p>
               <h1 className="display-lg mt-6 text-white">Professional Lighting Solutions</h1>
               <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/70">
-                A focused range of LED street lights, flood lights, solar street lights and industrial luminaires for roads,
-                sites, campuses and facilities — specified and quoted to the needs of each project.
+                Crista LED street lights and flood lights for roads, campuses, grounds and facilities. IP66 die-cast
+                aluminium bodies, branded LEDs, surge protection and a 2-year warranty on every light.
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function Lighting() {
 
       <section className="wrap pb-6">
         <p className="border-t border-line pt-5 text-[13px] text-muted">
-          Technical values shown are sample data for reference only. Final specifications, photometry and warranty terms are confirmed in each quotation.
+          Specifications are as per Crista product specification sheets. Lumen output is nominal. Final specifications and warranty terms are confirmed in each quotation.
         </p>
       </section>
       <EnquiryCTA image="construction" />

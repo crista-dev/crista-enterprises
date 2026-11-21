@@ -24,10 +24,8 @@ export const productMenu = [
     cta: 'Explore lighting',
     image: 'heroNight',
     links: [
-      { label: 'LED Street Lights', to: '/products/lighting?category=street', note: '50W – 150W' },
-      { label: 'LED Flood Lights', to: '/products/lighting?category=flood', note: '150W – 400W' },
-      { label: 'Solar Street Lights', to: '/products/lighting?category=solar', note: 'Off-grid' },
-      { label: 'Industrial Lighting', to: '/products/lighting?category=industrial', note: 'High bay' },
+      { label: 'LED Street Lights', to: '/products/lighting?category=street', note: '50W · 100W' },
+      { label: 'LED Flood Lights', to: '/products/lighting?category=flood', note: '200W' },
     ],
   },
   {
@@ -52,7 +50,6 @@ export const footerNav = {
     { label: 'Crista Lights', to: '/products/lighting' },
     { label: 'LED Street Lights', to: '/products/lighting?category=street' },
     { label: 'LED Flood Lights', to: '/products/lighting?category=flood' },
-    { label: 'Solar Street Lights', to: '/products/lighting?category=solar' },
     { label: 'Crista Gym Equipment', to: '/products/gym-equipment' },
     { label: 'Playground Equipment', to: '/products/gym-equipment?category=playground' },
   ],

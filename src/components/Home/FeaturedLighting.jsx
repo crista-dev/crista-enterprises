@@ -10,7 +10,6 @@ const TABS = [
   { id: 'all', label: 'All' },
   { id: 'street', label: 'Street' },
   { id: 'flood', label: 'Flood' },
-  { id: 'solar', label: 'Solar' },
 ];
 
 export default function FeaturedLighting() {
@@ -25,7 +24,7 @@ export default function FeaturedLighting() {
           index="03"
           eyebrow="Featured lighting products"
           title={<span id="featured-title">Lighting Solutions for Every Environment.</span>}
-          lede="Street, flood and solar luminaires for roads, sites, yards and campuses. Specifications are configurable per project."
+          lede="Crista LED street and flood lights for roads, campuses, grounds and yards. IP66 protected, surge protected and backed by a 2-year warranty."
           aside={<Button to="/products/lighting" variant="outline" icon={ArrowRight}>Full lighting catalogue</Button>}
         />
         <div className="mt-12 flex items-center justify-between gap-4 border-b border-line">

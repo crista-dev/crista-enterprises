@@ -16,8 +16,8 @@ const DIVS = [
     links: [
       { label: 'LED Street Lights', to: '/products/lighting?category=street' },
       { label: 'LED Flood Lights', to: '/products/lighting?category=flood' },
-      { label: 'Solar Street Lights', to: '/products/lighting?category=solar' },
-      { label: 'Industrial Lighting', to: '/products/lighting?category=industrial' },
+      { label: '50W LED Street Light', to: '/products/50w-led-street-light' },
+      { label: '100W LED Street Light', to: '/products/100w-led-street-light' },
     ],
   },
   {
