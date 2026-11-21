@@ -42,7 +42,7 @@ export default function Divisions() {
       <div className="wrap">
         <SectionHeader
           tone="light"
-          index="02"
+          index="01"
           eyebrow="Our product divisions"
           title={<span id="divisions-title">Two specialised divisions. One dependable supplier.</span>}
         />

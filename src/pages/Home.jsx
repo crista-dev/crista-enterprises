@@ -14,8 +14,8 @@ export default function Home() {
     <>
       <Hero />
       <Statement />
-      <Intro />
       <Divisions />
+      <Intro />
       <FeaturedLighting />
       <WhyCrista />
       <IndustriesShowcase />

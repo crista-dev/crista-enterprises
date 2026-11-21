@@ -22,7 +22,7 @@ export default function Intro() {
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-6">
           <Reveal>
             <div className="flex items-center gap-4 border-t border-line pt-4">
-              <span className="tabular text-eyebrow font-medium text-accent-ink">01</span>
+              <span className="tabular text-eyebrow font-medium text-accent-ink">02</span>
               <span className="eyebrow">About Crista Enterprises</span>
             </div>
             <h2 id="intro-title" className="display-lg mt-8">Products That Power Progress.</h2>
@@ -35,7 +35,7 @@ export default function Intro() {
           <Reveal delay={0.1}>
             <dl className="mt-12 grid gap-px bg-line sm:grid-cols-2">
               {points.map((p) => (
-                <div key={p.t} className="bg-paper py-6 sm:pr-6 [&:nth-child(even)]:sm:pl-6">
+                <div key={p.t} className="bg-white py-6 sm:pr-6 [&:nth-child(even)]:sm:pl-6">
                   <dt className="font-display text-[17px] font-medium text-ink">{p.t}</dt>
                   <dd className="mt-2 text-[14px] leading-relaxed text-muted">{p.d}</dd>
                 </div>
