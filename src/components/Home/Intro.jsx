@@ -21,11 +21,7 @@ export default function Intro() {
 
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-6">
           <Reveal>
-            <div className="flex items-center gap-4 border-t border-line pt-4">
-              
-              <span className="eyebrow">About Crista Enterprises</span>
-            </div>
-            <h2 id="intro-title" className="display-lg mt-8">Products That Power Progress.</h2>
+            <h2 id="intro-title" className="display-lg">Products That Power Progress.</h2>
             <p className="mt-6 text-[17px] leading-relaxed text-charcoal/80">
               Crista Enterprises is a business-to-business supplier of commercial and industrial lighting and outdoor gym and
               playground equipment. We work with contractors, facility owners, institutions and dealers who need dependable products,

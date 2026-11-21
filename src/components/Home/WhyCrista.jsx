@@ -16,10 +16,6 @@ export default function WhyCrista() {
       <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
           <Reveal className="lg:sticky lg:top-[calc(var(--header-h)+40px)]">
-            <div className="flex items-center gap-4 border-t border-line pt-4">
-              
-              <span className="eyebrow">Why choose Crista</span>
-            </div>
             <h2 id="why-title" className="display-md mt-8">Your Trusted Partner for Business Supplies.</h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
               We keep the process simple for business buyers: clear product information, honest quotations and responsive

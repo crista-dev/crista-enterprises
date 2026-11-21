@@ -52,10 +52,6 @@ export default function About() {
       <section className="py-20 lg:py-28">
         <div className="wrap grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
-            <div className="flex items-center gap-4 border-t border-line pt-4">
-              
-              <span className="eyebrow">Who we are</span>
-            </div>
           </Reveal>
           <Reveal className="space-y-6 text-[18px] leading-relaxed text-charcoal/85 lg:col-span-7 lg:col-start-6" delay={0.05}>
             <p className="font-display text-[26px] font-medium leading-snug tracking-[-0.02em] text-ink sm:text-[30px]">
