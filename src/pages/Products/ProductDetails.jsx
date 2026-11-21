@@ -144,9 +144,9 @@ export default function ProductDetails() {
         <div className="lg:col-span-5">
           <h2 className="display-md">Applications</h2>
           <ul className="mt-8 border-t border-line">
-            {p.applications.map((a, i) => (
+            {p.applications.map((a) => (
               <li key={a} className="flex items-center gap-5 border-b border-line py-4 text-[16px] text-ink">
-                <span className="tabular text-[12px] text-accent-ink">{String(i + 1).padStart(2, '0')}</span>{a}
+                {a}
               </li>
             ))}
           </ul>

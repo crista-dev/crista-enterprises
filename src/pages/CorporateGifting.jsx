@@ -17,7 +17,7 @@ const GRADIENT = 'bg-[linear-gradient(120deg,#0f8f52_0%,#0c8a78_55%,#0a7f96_100%
 
 const STEPS = [
   { t: 'Share your requirement', d: 'Occasion, number of recipients, budget per gift and delivery date.' },
-  { t: 'Receive curated options', d: 'We suggest hampers that fit your budget, with samples on request.' },
+  { t: 'Get hamper options', d: 'We suggest hampers that fit your budget, with samples on request.' },
   { t: 'Customise & brand', d: 'Finalise contents, packaging, logo placement and message cards.' },
   { t: 'Pack & dispatch', d: 'Hampers are packed and delivered to one or multiple locations.' },
 ];
@@ -84,10 +84,10 @@ export default function CorporateGifting() {
               <span className={cn('flex h-6 w-6 items-center justify-center rounded-sm text-white', GRADIENT)}><Gift className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden="true" /></span>
               Crista Corporate Gifting
             </p>
-            <h1 className="display-lg mt-6">Corporate Gifting Solutions</h1>
+            <h1 className="display-lg mt-6">Corporate gifting</h1>
             <p className="lede mt-6 max-w-xl">
-              Customised festival hampers, employee kits and client gifts for businesses, HR teams and organisations —
-              curated to your budget and branded with your logo.
+              Festival hampers, employee kits and client gifts for businesses and HR teams, put together for your budget
+              and branded with your logo.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button size="lg" icon={ArrowDown} onClick={() => scrollTo('hampers')}>Browse hampers</Button>
@@ -112,10 +112,9 @@ export default function CorporateGifting() {
         <div className="wrap">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="eyebrow">Sample hampers</p>
-              <h2 id="hampers-title" className="display-md mt-3">Festive & corporate collections</h2>
+              <h2 id="hampers-title" className="display-md">Hampers</h2>
             </div>
-            <p className="max-w-md text-[14px] text-muted">Add hampers to your enquiry to shortlist them. Contents and budgets are indicative and can be tailored.</p>
+            <p className="max-w-md text-[14px] text-muted">Add hampers to your enquiry to shortlist them. Contents and budgets are indicative and can be changed.</p>
           </div>
 
           {/* Collection tabs */}
@@ -159,7 +158,7 @@ export default function CorporateGifting() {
             <div className="mt-8 flex flex-col items-center border border-dashed border-line bg-white px-6 py-16 text-center">
               <SearchX className="h-8 w-8 text-muted" strokeWidth={1.25} aria-hidden="true" />
               <p className="mt-4 font-display text-lg font-semibold">No sample hampers in this budget</p>
-              <p className="mt-2 max-w-sm text-[14px] text-muted">We can still curate one for you — tell us your budget in the enquiry form.</p>
+              <p className="mt-2 max-w-sm text-[14px] text-muted">Tell us your budget in the enquiry form and we will suggest options.</p>
               <Button variant="outline" className="mt-6" onClick={reset}>Show all hampers</Button>
             </div>
           )}
@@ -171,8 +170,7 @@ export default function CorporateGifting() {
       <section className="border-y border-line bg-white py-16 lg:py-24">
         <div className="wrap grid gap-14 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow">Customisation</p>
-            <h2 className="display-md mt-3">Made to carry your company&rsquo;s name.</h2>
+            <h2 className="display-md">Branding and customisation</h2>
             <dl className="mt-8 border-t border-line">
               {CUSTOMISATION.map((c) => (
                 <div key={c.title} className="border-b border-line py-5">
@@ -183,8 +181,7 @@ export default function CorporateGifting() {
             </dl>
           </Reveal>
           <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.06}>
-            <p className="eyebrow">How it works</p>
-            <h2 className="display-md mt-3">From brief to doorstep.</h2>
+            <h2 className="display-md">How it works</h2>
             <ol className="mt-8">
               {STEPS.map((s, i) => (
                 <li key={s.t} className="relative flex gap-5 pb-8 last:pb-0">
@@ -205,10 +202,9 @@ export default function CorporateGifting() {
       <section id="gifting-enquiry" className="scroll-mt-24 py-16 lg:py-24" aria-labelledby="gifting-enquiry-title">
         <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
-            <p className="eyebrow">Gifting enquiry</p>
-            <h2 id="gifting-enquiry-title" className="display-md mt-3">Plan your festive gifting.</h2>
+            <h2 id="gifting-enquiry-title" className="display-md">Send a gifting enquiry</h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
-              Tell us the occasion, number of recipients and budget. We&rsquo;ll come back with curated hamper options and a quotation.
+              Tell us the occasion, number of recipients and budget. We&rsquo;ll reply with hamper options and a quotation.
             </p>
             <ul className="mt-8 space-y-4 border-t border-line pt-6 text-[14px]">
               <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-muted" strokeWidth={1.5} aria-hidden="true" /><a href={site.contact.email.href} className="text-ink hover:text-accent-ink">{site.contact.email.value}</a></li>

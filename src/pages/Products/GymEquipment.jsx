@@ -19,15 +19,15 @@ export default function GymEquipment() {
           <div className="flex flex-col justify-between px-4 pb-12 pt-10 sm:px-6 lg:pl-[max(2.5rem,calc((100vw-1360px)/2+2.5rem))] lg:pr-16 lg:pt-14">
             <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Products', to: '/products' }, { label: 'Crista Gym Equipment' }]} />
             <div className="py-14 lg:py-20">
-              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted">Crista Gym Equipment · Division 02</p>
-              <h1 className="display-lg mt-6">Outdoor Gym &amp; Playground Equipment</h1>
+              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted">Crista Gym Equipment</p>
+              <h1 className="display-lg mt-6">Outdoor gym and playground equipment</h1>
               <p className="lede mt-6 max-w-lg">Weather-ready outdoor gym stations and playground equipment for parks, residential societies, schools and municipal projects.</p>
             </div>
             <ul className="grid grid-cols-2 border-t border-line">
               {GYM_CATEGORIES.map((c, i) => (
                 <li key={c.slug} className={`border-b border-line ${i % 2 ? 'border-l pl-4' : 'pr-4'}`}>
                   <Link to={`/products/gym-equipment?category=${c.slug}`} className="group flex items-center justify-between py-4 text-[14px] text-charcoal hover:text-ink">
-                    <span><span className="tabular mr-3 text-[12px] text-muted">{String(i + 1).padStart(2, '0')}</span>{c.name}</span>
+                    <span>{c.name}</span>
                     <ArrowRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" aria-hidden="true" />
                   </Link>
                 </li>

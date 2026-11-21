@@ -55,7 +55,7 @@ export default function QuoteModal({ open, product, formKey, onClose }) {
             <aside className="relative hidden flex-col justify-between bg-ink p-8 text-white lg:flex">
               <div>
                 <p className="eyebrow text-white/50">Request a quote</p>
-                <p className="mt-4 font-display text-[26px] font-medium leading-tight">Tell us what you need. We&rsquo;ll prepare a quotation for your requirement.</p>
+                <p className="mt-4 font-display text-[26px] font-medium leading-tight">Tell us what you need and we&rsquo;ll send you a quotation.</p>
               </div>
               {p ? (
                 <div className="mt-8 border-t border-white/10 pt-6">
@@ -64,10 +64,10 @@ export default function QuoteModal({ open, product, formKey, onClose }) {
                   <p className="mt-1 font-display text-lg">{p.name}</p>
                 </div>
               ) : (
-                <ul className="mt-8 space-y-3 border-t border-white/10 pt-6 text-[14px] text-white/70">
-                  <li>— Project and bulk quantities</li>
-                  <li>— Specification guidance</li>
-                  <li>— Dealer & distributor enquiries</li>
+                <ul className="mt-8 list-disc space-y-3 border-t border-white/10 pl-5 pt-6 text-[14px] text-white/70 marker:text-accent">
+                  <li>Project and bulk quantities</li>
+                  <li>Help choosing products</li>
+                  <li>Dealer and distributor enquiries</li>
                 </ul>
               )}
             </aside>
@@ -75,8 +75,8 @@ export default function QuoteModal({ open, product, formKey, onClose }) {
             <div className="overflow-y-auto overscroll-contain">
               <div className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b border-line bg-white px-5 py-5 sm:px-8">
                 <div>
-                  <h2 id="quote-title" className="font-display text-xl font-medium sm:text-2xl">Request a Quote</h2>
-                  <p className="mt-1 text-[13px] text-muted">{p ? <>For <span className="text-ink">{productLabel(product)}</span> — change below if needed.</> : 'Prices depend on specification and quantity. Share your requirement for an accurate quote.'}</p>
+                  <h2 id="quote-title" className="font-display text-xl font-medium sm:text-2xl">Request a quote</h2>
+                  <p className="mt-1 text-[13px] text-muted">{p ? <>For <span className="text-ink">{productLabel(product)}</span>. You can change this below.</> : 'Prices depend on specification and quantity. Share your requirement for an accurate quote.'}</p>
                 </div>
                 <button type="button" onClick={onClose} className="-mr-2 flex h-10 w-10 shrink-0 items-center justify-center text-ink transition-colors hover:bg-mist" aria-label="Close quote form">
                   <X className="h-5 w-5" strokeWidth={1.75} />

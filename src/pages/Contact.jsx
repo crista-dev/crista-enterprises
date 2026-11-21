@@ -24,11 +24,10 @@ export default function Contact() {
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Contact Us' }]} />
           <div className="grid gap-8 py-14 lg:grid-cols-12 lg:py-20">
             <div className="lg:col-span-7">
-              <p className="eyebrow">Contact &amp; business enquiries</p>
-              <h1 className="display-lg mt-6">Let&rsquo;s talk about your requirement.</h1>
+                            <h1 className="display-lg">Contact us</h1>
             </div>
             <p className="lede self-end lg:col-span-4 lg:col-start-9">
-              Share your project, product or quantity requirement and our team will get back to you with the right information.
+              Tell us the product, quantity and delivery location you need, and we will reply with a quotation.
             </p>
           </div>
         </div>
@@ -46,7 +45,7 @@ export default function Contact() {
                   <div>
                     <p className="text-[12px] uppercase tracking-[0.12em] text-muted">{LABELS[k]}</p>
                     <p className="mt-1 text-[15px] text-ink">{v.href ? <a href={v.href} className="hover:text-accent-ink">{v.value}</a> : v.value}</p>
-                    {v.placeholder && <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-muted/80">Placeholder — to be updated</p>}
+                    {v.placeholder && <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-muted/80">Placeholder, to be updated</p>}
                   </div>
                 </li>
               );
@@ -55,11 +54,11 @@ export default function Contact() {
 
           <div className="mt-10 bg-ink p-7 text-white">
             <p className="text-[12px] uppercase tracking-[0.14em] text-white/50">What to include</p>
-            <ul className="mt-4 space-y-3 text-[14px] leading-relaxed text-white/80">
-              <li>— Product or category of interest</li>
-              <li>— Approximate quantity</li>
-              <li>— Application or site details</li>
-              <li>— Delivery location and timeline</li>
+            <ul className="mt-4 list-disc space-y-3 pl-5 text-[14px] leading-relaxed text-white/80 marker:text-accent">
+              <li>Product or category of interest</li>
+              <li>Approximate quantity</li>
+              <li>Application or site details</li>
+              <li>Delivery location and timeline</li>
             </ul>
           </div>
         </aside>

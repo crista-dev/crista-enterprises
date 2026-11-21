@@ -21,9 +21,8 @@ export default function FeaturedLighting() {
     <section className="py-20 lg:py-28" aria-labelledby="featured-title">
       <div className="wrap">
         <SectionHeader
-          index="03"
           eyebrow="Featured lighting products"
-          title={<span id="featured-title">Lighting Solutions for Every Environment.</span>}
+          title={<span id="featured-title">Crista LED lights</span>}
           lede="Crista LED street and flood lights for roads, campuses, grounds and yards. IP66 protected, surge protected and backed by a 2-year warranty."
           aside={<Button to="/products/lighting" variant="outline" icon={ArrowRight}>Full lighting catalogue</Button>}
         />

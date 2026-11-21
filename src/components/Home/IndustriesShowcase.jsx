@@ -8,7 +8,7 @@ import { industries } from '../../data/industries';
 import cn from '../../utils/cn';
 
 /** Interactive index: hover / focus an industry to swap the image panel. Mobile: snap-scroll cards. */
-export default function IndustriesShowcase({ index = '04', withHeader = true }) {
+export default function IndustriesShowcase({ index, withHeader = true }) {
   const [active, setActive] = useState(0);
   const current = industries[active];
 
@@ -19,7 +19,7 @@ export default function IndustriesShowcase({ index = '04', withHeader = true }) 
           <SectionHeader
             index={index}
             eyebrow="Industries we serve"
-            title={<span id="industries-title">Supplying the sectors that build, run and equip.</span>}
+            title={<span id="industries-title">Industries we serve</span>}
             aside={<Button to="/industries" variant="outline" icon={ArrowRight}>All industries</Button>}
           />
         )}
@@ -40,7 +40,6 @@ export default function IndustriesShowcase({ index = '04', withHeader = true }) 
                   onClick={() => setActive(i)}
                   className="group flex w-full items-center gap-6 py-5 text-left"
                 >
-                  <span className={cn('tabular w-6 text-[12px] transition-colors', active === i ? 'text-accent-ink' : 'text-muted')}>{String(i + 1).padStart(2, '0')}</span>
                   <span className={cn('flex-1 font-display text-[26px] font-medium tracking-[-0.025em] transition-colors duration-200', active === i ? 'text-ink' : 'text-ink/35 group-hover:text-ink/70')}>
                     {ind.name}
                   </span>
@@ -70,12 +69,11 @@ export default function IndustriesShowcase({ index = '04', withHeader = true }) 
 
         {/* Mobile / tablet */}
         <ul className="no-scrollbar -mx-4 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 sm:-mx-6 sm:px-6 lg:hidden">
-          {industries.map((ind, i) => (
+          {industries.map((ind) => (
             <li key={ind.id} className="w-[78%] shrink-0 snap-start sm:w-[44%]">
               <SmartImage image={ind.image} className="aspect-[4/5]">
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <span className="tabular text-[12px] text-accent">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="mt-1 font-display text-[22px] font-medium text-white">{ind.name}</h3>
                   <p className="mt-2 text-[13px] leading-relaxed text-white/75">{ind.summary}</p>
                 </div>

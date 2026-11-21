@@ -109,7 +109,7 @@ export default function GiftingEnquiryForm({ shortlist, onRemove, onClearShortli
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-accent-ink"><Check className="h-6 w-6" strokeWidth={2} aria-hidden="true" /></span>
         <h3 className="mt-6 font-display text-2xl font-semibold">Thank you, {sent.name.split(' ')[0]}.</h3>
         <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-muted">
-          Your gifting enquiry has been recorded. Our team will prepare curated options for your {sent.occasion.toLowerCase()} requirement and reply at <span className="text-ink">{sent.email}</span>.
+          Your gifting enquiry has been recorded. Our team will prepare hamper options for your {sent.occasion.toLowerCase()} requirement and reply at <span className="text-ink">{sent.email}</span>.
         </p>
         <dl className="mt-6 grid grid-cols-2 gap-px overflow-hidden border border-line bg-line text-[13px] sm:grid-cols-4">
           {[['Reference', ref], ['Occasion', sent.occasion], ['Recipients', sent.recipients], ['Budget / gift', BUDGET_BANDS.find((b) => b.id === sent.budget)?.label]].map(([k, val]) => (

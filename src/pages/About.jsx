@@ -11,10 +11,10 @@ import { REASONS } from '../components/Home/WhyCrista';
 import { productMenu } from '../data/navigation';
 
 const APPROACH = [
-  { t: 'Understand the requirement', d: 'We start with your application — site, environment, usage, quantity and timeline — rather than a product list.' },
-  { t: 'Recommend the right products', d: 'We match wattage, optics, equipment mix and specifications to what the project actually needs.' },
-  { t: 'Quote clearly', d: 'You receive a quotation built around your specification and volume, with the details needed to compare and approve.' },
-  { t: 'Coordinate supply', d: 'We stay your single point of contact through order confirmation and delivery planning.' },
+  { t: 'Understand the requirement', d: 'We start with your site, usage, quantity and timeline, not a product list.' },
+  { t: 'Recommend products', d: 'We suggest the wattage, light colour or equipment mix that suits the project.' },
+  { t: 'Send a quotation', d: 'You get a written quotation with prices, specifications and delivery terms.' },
+  { t: 'Supply and delivery', d: 'We confirm the order and arrange delivery to your site.' },
 ];
 
 export default function About() {
@@ -26,8 +26,7 @@ export default function About() {
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'About Us' }]} />
           <div className="grid gap-12 py-14 lg:grid-cols-12 lg:py-20">
             <div className="lg:col-span-7">
-              <p className="eyebrow">About Crista Enterprises</p>
-              <h1 className="display-xl mt-6 !text-[2.5rem] sm:!text-6xl lg:!text-[4.5rem]">Supplying the products businesses depend on.</h1>
+                            <h1 className="display-xl !text-[2.5rem] sm:!text-6xl lg:!text-[4.5rem]">About Crista Enterprises</h1>
             </div>
             <div className="flex flex-col justify-end lg:col-span-4 lg:col-start-9">
               <p className="text-[17px] leading-relaxed text-charcoal/80">
@@ -55,17 +54,17 @@ export default function About() {
           </Reveal>
           <Reveal className="space-y-6 text-[18px] leading-relaxed text-charcoal/85 lg:col-span-7 lg:col-start-6" delay={0.05}>
             <p className="font-display text-[26px] font-medium leading-snug tracking-[-0.02em] text-ink sm:text-[30px]">
-              We help contractors, facilities, institutions and dealers source dependable lighting and fitness equipment —
-              specified properly and quoted for the scale of their requirement.
+              We supply LED lighting and outdoor gym equipment to contractors, facilities, institutions and dealers,
+              quoted for the size of each order.
             </p>
             <p>
-              Our customers range from construction and infrastructure contractors to factories, hotels, schools, gyms and
-              distributors. What they share is a need for products that perform in demanding, everyday commercial use, and a
-              supplier who responds clearly to their specifications and quantities.
+              Our customers include construction and infrastructure contractors, municipalities, factories, schools, housing
+              societies and distributors. They need products built for daily outdoor and commercial use, and clear answers
+              on specifications and quantities.
             </p>
             <p>
-              We are not a retail store. Every enquiry is handled as a business requirement, and every quotation is prepared
-              against the specification, quantity and timeline you share with us.
+              We do not sell retail. Each enquiry gets a quotation based on the specification, quantity and timeline you
+              share with us.
             </p>
           </Reveal>
         </div>
@@ -74,12 +73,11 @@ export default function About() {
       {/* Approach */}
       <section className="bg-ink py-20 text-white lg:py-28">
         <div className="wrap">
-          <SectionHeader tone="light" index="02" eyebrow="Our business approach" title="A clear, requirement-led process." />
+          <SectionHeader tone="light" title="How we work" />
           <ol className="mt-14 grid border-t border-white/15 md:grid-cols-2 lg:grid-cols-4">
             {APPROACH.map((a, i) => (
               <Reveal as="li" key={a.t} delay={i * 0.06} className={`border-b border-white/15 py-8 md:pr-8 lg:border-b-0 ${i ? 'lg:border-l lg:pl-8' : ''} ${i % 2 ? 'md:border-l md:pl-8 lg:pl-8' : ''}`}>
-                <span className="tabular font-display text-[44px] font-medium leading-none text-white/20">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="mt-8 font-display text-xl font-medium text-white">{a.t}</h3>
+                <h3 className="font-display text-xl font-medium text-white">{a.t}</h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-white/60">{a.d}</p>
               </Reveal>
             ))}
@@ -90,15 +88,14 @@ export default function About() {
       {/* Divisions */}
       <section className="py-20 lg:py-28">
         <div className="wrap">
-          <SectionHeader index="03" eyebrow="Product divisions" title="Two divisions, one standard of service." />
+          <SectionHeader title="Our product ranges" />
           <div className="mt-14 space-y-4">
             {productMenu.map((d, i) => (
               <Reveal key={d.id} className="grid overflow-hidden border border-line bg-white md:grid-cols-12">
                 <SmartImage image={d.image} className={`aspect-[16/9] md:col-span-5 md:aspect-auto md:min-h-[320px] ${i % 2 ? 'md:order-2' : ''}`} sizes="40vw" />
                 <div className="flex flex-col justify-between p-7 sm:p-10 md:col-span-7">
                   <div>
-                    <p className="text-eyebrow font-medium uppercase text-accent-ink">{d.kicker}</p>
-                    <h3 className="mt-3 font-display text-[30px] font-medium tracking-[-0.025em]">{d.title}</h3>
+                    <h3 className="font-display text-[30px] font-medium tracking-[-0.025em]">{d.title}</h3>
                     <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-muted">{d.description}</p>
                   </div>
                   <div className="mt-8 flex flex-wrap gap-2">
@@ -115,13 +112,13 @@ export default function About() {
       </section>
 
       <div className="border-t border-line bg-white">
-        <IndustriesShowcase index="04" />
+        <IndustriesShowcase />
       </div>
 
       {/* Why work with Crista */}
       <section className="border-t border-line py-20 lg:py-28">
         <div className="wrap">
-          <SectionHeader index="05" eyebrow="Working with Crista" title="Why businesses can work with us." size="md" />
+          <SectionHeader title="Why work with us" size="md" />
           <ul className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
             {REASONS.map((r) => (
               <li key={r.title} className="flex gap-4 border-t border-line py-6">

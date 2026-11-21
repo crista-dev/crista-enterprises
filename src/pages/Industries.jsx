@@ -28,11 +28,10 @@ export default function Industries() {
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Industries' }]} />
           <div className="grid gap-8 py-14 lg:grid-cols-12 lg:py-20">
             <div className="lg:col-span-7">
-              <p className="eyebrow">Industries we serve</p>
-              <h1 className="display-lg mt-6">Products matched to the sectors we supply.</h1>
+                            <h1 className="display-lg">Industries we serve</h1>
             </div>
             <p className="lede self-end lg:col-span-4 lg:col-start-9">
-              From roads and construction sites to factories, campuses, hotels and gyms — each sector has different requirements. Here is how our range maps to them.
+              Roads, construction sites, factories, campuses, parks and hotels each need different products. Here is what we supply to each.
             </p>
           </div>
           <nav aria-label="Jump to industry" className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-6 sm:mx-0 sm:px-0">
@@ -48,8 +47,7 @@ export default function Industries() {
           <Reveal as="section" key={ind.id} id={ind.id} aria-labelledby={`${ind.id}-h`} className="grid scroll-mt-32 gap-8 border-b border-line py-10 last:border-b-0 md:grid-cols-12 md:items-center lg:gap-12 lg:py-14">
             <SmartImage image={ind.image} className={`aspect-[16/10] md:col-span-6 ${i % 2 ? 'md:order-2 md:col-start-7' : ''}`} sizes="50vw" />
             <div className={`md:col-span-5 ${i % 2 ? 'md:order-1 md:col-start-1' : 'md:col-start-8'}`}>
-              <span className="tabular text-[12px] text-accent-ink">{String(i + 1).padStart(2, '0')}</span>
-              <h2 id={`${ind.id}-h`} className="mt-3 font-display text-[30px] font-medium tracking-[-0.025em] sm:text-[36px]">{ind.name}</h2>
+              <h2 id={`${ind.id}-h`} className="font-display text-[30px] font-medium tracking-[-0.025em] sm:text-[36px]">{ind.name}</h2>
               <p className="mt-4 text-[16px] leading-relaxed text-muted">{ind.summary}</p>
               <p className="mt-8 text-[12px] uppercase tracking-[0.14em] text-muted">Relevant products</p>
               <ul className="mt-3 border-t border-line">

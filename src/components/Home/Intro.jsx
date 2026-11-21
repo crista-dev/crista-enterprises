@@ -4,10 +4,10 @@ import Button from '../Buttons/Button';
 import { ArrowRight } from 'lucide-react';
 
 const points = [
-  { t: 'Two focused divisions', d: 'Commercial LED lighting and outdoor gym and playground equipment under one supplier.' },
-  { t: 'Built for business buyers', d: 'Quotations shaped around specification, quantity and project timelines.' },
-  { t: 'Single-unit to bulk', d: 'From individual requirements to project and distributor volumes.' },
-  { t: 'One point of contact', d: 'A dedicated enquiry process from first question to delivery planning.' },
+  { t: 'Two product ranges', d: 'Crista Lights and Crista Gym Equipment, supplied by one team.' },
+  { t: 'Quotes for business orders', d: 'Prices are quoted on your product, quantity and delivery location.' },
+  { t: 'Any order size', d: 'From a few units to project and dealer quantities.' },
+  { t: 'Based in Bhopal', d: 'Email us with your requirement and we will send a quotation.' },
 ];
 
 export default function Intro() {
@@ -21,11 +21,11 @@ export default function Intro() {
 
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-6">
           <Reveal>
-            <h2 id="intro-title" className="display-lg">Products That Power Progress.</h2>
+            <h2 id="intro-title" className="display-lg">About Crista Enterprises</h2>
             <p className="mt-6 text-[17px] leading-relaxed text-charcoal/80">
-              Crista Enterprises is a business-to-business supplier of commercial and industrial lighting and outdoor gym and
-              playground equipment. We work with contractors, facility owners, institutions and dealers who need dependable products,
-              clear specifications and a supplier that can respond to project-scale requirements.
+              Crista Enterprises is a B2B supplier based in Bhopal, Madhya Pradesh. We supply Crista LED street and flood lights,
+              outdoor gym and playground equipment, and corporate gift hampers to contractors, municipalities, institutions,
+              housing societies and dealers.
             </p>
           </Reveal>
           <Reveal delay={0.1}>

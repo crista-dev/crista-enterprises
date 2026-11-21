@@ -18,10 +18,9 @@ export const productMenu = [
   {
     id: 'lighting',
     title: 'Crista Lights',
-    kicker: 'Division 01',
     description: 'Commercial and industrial LED lighting for roads, sites and facilities.',
     to: '/products/lighting',
-    cta: 'Explore lighting',
+    cta: 'View all lights',
     image: 'heroNight',
     links: [
       { label: 'LED Street Lights', to: '/products/lighting?category=street', note: '50W · 100W' },
@@ -31,10 +30,9 @@ export const productMenu = [
   {
     id: 'gym',
     title: 'Crista Gym Equipment',
-    kicker: 'Division 02',
     description: 'Outdoor gym and playground equipment for parks, societies and schools.',
     to: '/products/gym-equipment',
-    cta: 'Explore gym equipment',
+    cta: 'View gym equipment',
     image: 'gymFloor',
     links: [
       { label: 'Cardio Stations', to: '/products/gym-equipment?category=cardio', note: 'Walkers, cycles, rowers' },

@@ -46,7 +46,7 @@ export default function Hero() {
             >
               <p className="max-w-md text-[16px] leading-relaxed text-white/90 sm:text-[17px]">
                 Commercial lighting, outdoor gym and playground equipment for businesses,
-                institutions and public projects. One partner from planning to installation.
+                institutions and public projects.
               </p>
               <Link
                 to="/products"

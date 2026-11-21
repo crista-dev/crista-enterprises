@@ -23,7 +23,6 @@ export default function MegaMenu({ id, onNavigate, onQuote }) {
               <SmartImage image={div.image} className="absolute inset-0" imgClassName="transition-transform duration-700 ease-brand group-hover/tile:scale-[1.04]" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/60">{div.kicker}</p>
                 <p className="mt-1 font-display text-lg font-medium leading-snug">{div.title}</p>
               </div>
             </Link>

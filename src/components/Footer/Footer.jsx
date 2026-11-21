@@ -46,11 +46,11 @@ export default function Footer() {
       <div className="border-b border-white/10">
         <div className="wrap grid gap-8 py-14 lg:grid-cols-12 lg:items-end lg:py-20">
           <p className="font-display text-[28px] font-medium leading-[1.12] tracking-[-0.025em] sm:text-4xl lg:col-span-7 lg:text-[44px]">
-            Lighting and fitness equipment, <span className="text-white/45">supplied for business.</span>
+            Need a quotation?
           </p>
           <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
             <Button variant="accent" size="lg" icon={ArrowRight} onClick={() => openQuote()}>Request a Quote</Button>
-            <Button variant="outline-light" size="lg" to="/contact">Contact our team</Button>
+            <Button variant="outline-light" size="lg" to="/contact">Contact us</Button>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function Footer() {
           </Column>
         </div>
         <div className="lg:col-span-2">
-          <Column title="Business Support">
+          <Column title="Support">
             {footerNav.support.map((l) => (
               <li key={l.label}>
                 {l.quote ? (

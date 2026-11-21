@@ -495,7 +495,7 @@ export const gymProducts = [
     equipType: 'Spiral slide',
     summary: 'Curved spiral slide in durable fibre-reinforced plastic.',
     description: 'A spiral slide moulded in fibre-reinforced plastic (FRP) on a GI pipe structure with a safety ladder. Smooth, rounded edges and bright colours for outdoor play areas.',
-    extra: ['Seamless FRP slide body', 'Enclosed platform and safety ladder'],
+    extra: ['One-piece FRP slide body', 'Enclosed platform and safety ladder'],
   }),
   pg({
     slug: 'triple-wave-slide', name: 'Triple Wave Slide', category: 'playground', type: 'Multi-user', users: 3, material: 'GI pipe with ISI mark, FRP slide',

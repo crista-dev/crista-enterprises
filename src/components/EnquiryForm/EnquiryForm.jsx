@@ -9,8 +9,8 @@ import Button from '../Buttons/Button';
 import cn from '../../utils/cn';
 
 const GENERAL = [
-  { value: 'general-lighting', label: 'Lighting — general / multiple products' },
-  { value: 'general-gym', label: 'Gym equipment — general / multiple products' },
+  { value: 'general-lighting', label: 'Lighting (general or multiple products)' },
+  { value: 'general-gym', label: 'Gym equipment (general or multiple products)' },
   { value: 'general-both', label: 'Both divisions' },
 ];
 

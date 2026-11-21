@@ -26,8 +26,8 @@ export default function Lighting() {
           <Breadcrumbs tone="light" items={[{ label: 'Home', to: '/' }, { label: 'Products', to: '/products' }, { label: 'Crista Lights' }]} />
           <div className="grid gap-8 py-16 lg:grid-cols-12 lg:py-24">
             <div className="lg:col-span-8">
-              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-white/60">Crista Lights · Division 01</p>
-              <h1 className="display-lg mt-6 text-white">Professional Lighting Solutions</h1>
+              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-white/60">Crista Lights</p>
+              <h1 className="display-lg mt-6 text-white">Crista LED lights</h1>
               <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/70">
                 Crista LED street lights and flood lights for roads, campuses, grounds and facilities. IP66 die-cast
                 aluminium bodies, branded LEDs, surge protection and a 2-year warranty on every light.

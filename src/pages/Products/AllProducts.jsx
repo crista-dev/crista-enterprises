@@ -18,9 +18,8 @@ export default function AllProducts() {
           <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Products' }]} />
           <div className="grid gap-10 py-14 lg:grid-cols-12 lg:py-20">
             <div className="lg:col-span-6">
-              <p className="eyebrow">Product range</p>
-              <h1 className="display-lg mt-6">All Products</h1>
-              <p className="lede mt-5 max-w-lg">Search and filter across both Crista divisions, or go directly to a dedicated catalogue.</p>
+                            <h1 className="display-lg">All products</h1>
+              <p className="lede mt-5 max-w-lg">Search and filter all Crista lights and outdoor gym equipment.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:col-span-6">
               {[{ d: DIVISIONS.lighting, img: 'heroNight', n: '01' }, { d: DIVISIONS.gym, img: 'gymFloor', n: '02' }].map(({ d, img, n }) => (
