@@ -433,9 +433,9 @@ export const gymProducts = [
   og({
     slug: 'leg-stretcher', name: 'Leg Stretcher', category: 'core', type: 'Multi-user', users: null, bearings: false,
     equipType: 'Outdoor stretching station', muscles: 'Hamstrings, calves, hips',
-    summary: 'Multi-height bars for leg stretching and warm-up.',
-    description: 'Bars at different heights let users rest a leg and stretch the hamstrings, calves and hips. Ideal for warm-ups and cool-downs before and after walking or jogging.',
-    extra: ['Bars at multiple heights', 'No moving parts, minimal maintenance'],
+    summary: 'Post with a curved rail for leg stretching and warm-up.',
+    description: 'A central post with a curved rail around it at leg height. Users rest one leg on the rail to stretch the hamstrings, calves and hips. Ideal for warm-ups and cool-downs before and after walking or jogging.',
+    extra: ['Curved rail usable from all sides', 'No moving parts, minimal maintenance'],
   }),
 
   /* ----- Bodyweight bars ----- */
