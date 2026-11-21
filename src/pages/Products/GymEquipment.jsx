@@ -19,7 +19,7 @@ export default function GymEquipment() {
           <div className="flex flex-col justify-between px-4 pb-12 pt-10 sm:px-6 lg:pl-[max(2.5rem,calc((100vw-1360px)/2+2.5rem))] lg:pr-16 lg:pt-14">
             <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Products', to: '/products' }, { label: 'Crista Gym Equipment' }]} />
             <div className="py-14 lg:py-20">
-              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted"><span className="h-px w-6 bg-accent" aria-hidden="true" />Crista Gym Equipment · Division 02</p>
+              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted">Crista Gym Equipment · Division 02</p>
               <h1 className="display-lg mt-6">Outdoor Gym &amp; Playground Equipment</h1>
               <p className="lede mt-6 max-w-lg">Weather-ready outdoor gym stations and playground equipment for parks, residential societies, schools and municipal projects.</p>
             </div>

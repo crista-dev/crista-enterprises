@@ -20,7 +20,7 @@ export default function EnquiryCTA({ image = 'constructionCrane' }) {
           <SmartImage image={image} className="aspect-[16/10] lg:col-span-5 lg:aspect-auto" sizes="(min-width:1024px) 40vw, 100vw" />
           <div className="flex flex-col justify-between p-7 sm:p-12 lg:col-span-7 lg:p-16">
             <div>
-              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted"><span className="h-px w-6 bg-accent" aria-hidden="true" />Business enquiries</p>
+              <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted">Business enquiries</p>
               <h2 id="cta-title" className="display-lg mt-6">Planning Your Next Project?</h2>
               <p className="lede mt-5 max-w-xl">Tell us what your business needs. Our team can help you find the right products for your requirements.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">

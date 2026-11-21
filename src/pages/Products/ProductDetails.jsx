@@ -49,7 +49,7 @@ export default function ProductDetails() {
 
         <div className="lg:col-span-5">
           <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted">
-            <span className="h-px w-6 bg-accent" aria-hidden="true" />{division.name} · {p.categoryName}
+            {division.name} · {p.categoryName}
           </p>
           <h1 className="mt-5 font-display text-[34px] font-medium leading-[1.08] tracking-[-0.03em] sm:text-[44px]">{p.name}</h1>
           {p.model && <p className="mt-3 text-[13px] uppercase tracking-[0.14em] text-muted">Model {p.model}</p>}

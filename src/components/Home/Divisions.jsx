@@ -54,7 +54,7 @@ export default function Divisions() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/5" aria-hidden="true" />
                 <div className="relative p-6 sm:p-10">
                   <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-white/60">
-                    <span className="h-px w-6 bg-accent" aria-hidden="true" />{d.n}
+                    {d.n}
                   </p>
                   <h3 className="mt-4 font-display text-[34px] font-medium leading-[1.05] tracking-[-0.03em] text-white sm:text-[44px]">{d.title}</h3>
                   <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">{d.text}</p>
