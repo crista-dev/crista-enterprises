@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUp, Facebook, Instagram, Linkedin, Mail, MapPin, Youtube, Clock } from 'lucide-react';
+import { ArrowUp, Facebook, Instagram, Linkedin, Mail, MapPin, Youtube, Clock } from 'lucide-react';
 import Logo from '../Common/Logo';
-import Button from '../Buttons/Button';
 import { footerNav } from '../../data/navigation';
 import { site } from '../../data/site';
 import { useQuote } from '../../context/QuoteContext';
@@ -41,19 +40,6 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-white" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
-
-      {/* Enquiry band */}
-      <div className="border-b border-white/10">
-        <div className="wrap grid gap-8 py-14 lg:grid-cols-12 lg:items-end lg:py-20">
-          <p className="font-display text-[28px] font-medium leading-[1.12] tracking-[-0.025em] sm:text-4xl lg:col-span-7 lg:text-[44px]">
-            Need a quotation?
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
-            <Button variant="accent" size="lg" icon={ArrowRight} onClick={() => openQuote()}>Request a Quote</Button>
-            <Button variant="outline-light" size="lg" to="/contact">Contact us</Button>
-          </div>
-        </div>
-      </div>
 
       {/* Link columns */}
       <div className="wrap grid grid-cols-2 gap-x-6 gap-y-12 py-14 md:grid-cols-4 lg:grid-cols-12 lg:py-16">

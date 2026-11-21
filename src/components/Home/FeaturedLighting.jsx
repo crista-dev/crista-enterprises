@@ -1,21 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { ArrowRight } from 'lucide-react';
 import SectionHeader from '../Common/SectionHeader';
 import ProductGrid from '../ProductGrid/ProductGrid';
 import Button from '../Buttons/Button';
 import { getFeatured } from '../../data/products';
-import cn from '../../utils/cn';
-
-const TABS = [
-  { id: 'all', label: 'All' },
-  { id: 'street', label: 'Street' },
-  { id: 'flood', label: 'Flood' },
-];
 
 export default function FeaturedLighting() {
-  const [tab, setTab] = useState('all');
   const featured = useMemo(() => getFeatured('lighting', 8), []);
-  const list = tab === 'all' ? featured : featured.filter((p) => p.category === tab);
 
   return (
     <section className="py-20 lg:py-28" aria-labelledby="featured-title">
@@ -24,27 +15,9 @@ export default function FeaturedLighting() {
           eyebrow="Featured lighting products"
           title={<span id="featured-title">Crista LED lights</span>}
           lede="Crista LED street and flood lights for roads, campuses, grounds and yards. IP66 protected, surge protected and backed by a 2-year warranty."
-          aside={<Button to="/products/lighting" variant="outline" icon={ArrowRight}>Full lighting catalogue</Button>}
+          aside={<Button to="/products/lighting" variant="outline" icon={ArrowRight}>All lights</Button>}
         />
-        <div className="mt-12 flex items-center justify-between gap-4 border-b border-line">
-          <div role="tablist" aria-label="Filter featured lighting" className="no-scrollbar flex overflow-x-auto">
-            {TABS.map((t) => (
-              <button
-                key={t.id}
-                type="button"
-                role="tab"
-                aria-selected={tab === t.id}
-                onClick={() => setTab(t.id)}
-                className={cn('relative h-12 px-4 text-[14px] transition-colors first:pl-0', tab === t.id ? 'font-medium text-ink' : 'text-muted hover:text-ink')}
-              >
-                {t.label}
-                <span className={cn('absolute bottom-[-1px] right-4 h-[2px] bg-ink transition-opacity', t.id === 'all' ? 'left-0' : 'left-4', tab === t.id ? 'opacity-100' : 'opacity-0')} aria-hidden="true" />
-              </button>
-            ))}
-          </div>
-          <p className="hidden text-[13px] text-muted sm:block">Prices are quoted per specification and quantity.</p>
-        </div>
-        <ProductGrid products={list} cols="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" className="mt-8" />
+        <ProductGrid products={featured} cols="sm:grid-cols-2 lg:grid-cols-3" className="mt-12" />
       </div>
     </section>
   );

@@ -1,12 +1,6 @@
-import { ChevronRight, Dumbbell, Lightbulb, ShieldCheck } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import Reveal from '../Common/Reveal';
 import { useQuote } from '../../context/QuoteContext';
-
-const ICONS = [
-  { Icon: Lightbulb, label: 'LED lighting' },
-  { Icon: Dumbbell, label: 'Outdoor gym equipment' },
-  { Icon: ShieldCheck, label: 'Built for outdoor use' },
-];
 
 /** Large statement band below the hero, on the page (grey) background. */
 export default function Statement() {
@@ -30,17 +24,7 @@ export default function Statement() {
               facilities. Specified, supplied and installed for every project.
             </p>
           </div>
-
-          <ul className="flex gap-7 text-ink lg:col-span-3 lg:pt-3" aria-label="What we supply">
-            {ICONS.map(({ Icon, label }) => (
-              <li key={label} title={label}>
-                <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
-                <span className="sr-only">{label}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="lg:col-span-3 lg:flex lg:justify-end">
+          <div className="lg:col-span-6 lg:flex lg:justify-end">
             <button
               type="button"
               onClick={() => openQuote()}

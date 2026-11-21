@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import usePageMeta from '../hooks/usePageMeta';
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs';
 import SmartImage from '../components/Common/SmartImage';
@@ -7,7 +7,6 @@ import Reveal from '../components/Common/Reveal';
 import SectionHeader from '../components/Common/SectionHeader';
 import IndustriesShowcase from '../components/Home/IndustriesShowcase';
 import EnquiryCTA from '../components/Home/EnquiryCTA';
-import { REASONS } from '../components/Home/WhyCrista';
 import { productMenu } from '../data/navigation';
 
 const APPROACH = [
@@ -114,25 +113,6 @@ export default function About() {
       <div className="border-t border-line bg-white">
         <IndustriesShowcase />
       </div>
-
-      {/* Why work with Crista */}
-      <section className="border-t border-line py-20 lg:py-28">
-        <div className="wrap">
-          <SectionHeader title="Why work with us" size="md" />
-          <ul className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
-            {REASONS.map((r) => (
-              <li key={r.title} className="flex gap-4 border-t border-line py-6">
-                <r.icon className="mt-0.5 h-5 w-5 shrink-0 text-accent-ink" strokeWidth={1.5} aria-hidden="true" />
-                <div>
-                  <h3 className="font-sans text-[15px] font-medium text-ink">{r.title}</h3>
-                  <p className="mt-1.5 text-[14px] leading-relaxed text-muted">{r.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <Link to="/contact" className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-ink hover:text-accent-ink">Talk to our team <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
-        </div>
-      </section>
 
       <EnquiryCTA image="industrial" />
     </>

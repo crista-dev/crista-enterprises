@@ -67,17 +67,10 @@ export default function ProductDetails() {
             </dl>
           </div>
 
-          <SampleNotice className="mt-5" />
-
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button size="lg" icon={ArrowRight} onClick={() => openQuote({ product: p.slug })} className="flex-1">Request a Quote</Button>
             <Button size="lg" variant="outline" iconLeft={MessageSquare} to={`/contact?type=product&product=${p.slug}`} className="flex-1">Enquire Now</Button>
           </div>
-          <ul className="mt-6 space-y-2 text-[13px] text-muted">
-            {['Pricing based on specification and quantity', 'Bulk and project orders welcome', 'Specification guidance on request'].map((t) => (
-              <li key={t} className="flex items-center gap-2"><Check className="h-4 w-4 text-accent-ink" aria-hidden="true" />{t}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
