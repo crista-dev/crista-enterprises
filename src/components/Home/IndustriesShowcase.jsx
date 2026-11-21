@@ -8,12 +8,12 @@ import { industries } from '../../data/industries';
 import cn from '../../utils/cn';
 
 /** Interactive index: hover / focus an industry to swap the image panel. Mobile: snap-scroll cards. */
-export default function IndustriesShowcase({ index = '05', withHeader = true }) {
+export default function IndustriesShowcase({ index = '04', withHeader = true }) {
   const [active, setActive] = useState(0);
   const current = industries[active];
 
   return (
-    <section className="py-20 lg:py-28" aria-labelledby="industries-title">
+    <section className="bg-white py-20 lg:py-28" aria-labelledby="industries-title">
       <div className="wrap">
         {withHeader && (
           <SectionHeader
