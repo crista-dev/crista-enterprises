@@ -48,10 +48,7 @@ export const productMenu = [
 export const footerNav = {
   products: [
     { label: 'Crista Lights', to: '/products/lighting' },
-    { label: 'LED Street Lights', to: '/products/lighting?category=street' },
-    { label: 'LED Flood Lights', to: '/products/lighting?category=flood' },
     { label: 'Crista Gym Equipment', to: '/products/gym-equipment' },
-    { label: 'Playground Equipment', to: '/products/gym-equipment?category=playground' },
   ],
   company: [
     { label: 'About Us', to: '/about' },

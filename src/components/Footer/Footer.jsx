@@ -63,10 +63,6 @@ export default function Footer() {
             Crista Enterprises is a B2B supplier of commercial and industrial LED lighting and outdoor gym and playground equipment for
             contractors, institutions, facilities and dealers.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2 text-[12px] text-white/60">
-            <Link to="/products/lighting" className="rounded-sm border border-white/15 px-3 py-1.5 transition-colors hover:border-white/40 hover:text-white">Crista Lights</Link>
-            <Link to="/products/gym-equipment" className="rounded-sm border border-white/15 px-3 py-1.5 transition-colors hover:border-white/40 hover:text-white">Crista Gym Equipment</Link>
-          </div>
           <ul className="mt-8 flex gap-2" aria-label="Social media">
             {site.social.map((s) => {
               const Icon = SOCIAL_ICONS[s.id];
