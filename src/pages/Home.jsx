@@ -4,7 +4,6 @@ import Statement from '../components/Home/Statement';
 import Intro from '../components/Home/Intro';
 import Divisions from '../components/Home/Divisions';
 import FeaturedLighting from '../components/Home/FeaturedLighting';
-import WhyCrista from '../components/Home/WhyCrista';
 import IndustriesShowcase from '../components/Home/IndustriesShowcase';
 import EnquiryCTA from '../components/Home/EnquiryCTA';
 
@@ -17,7 +16,6 @@ export default function Home() {
       <Divisions />
       <Intro />
       <FeaturedLighting />
-      <WhyCrista />
       <IndustriesShowcase />
       <EnquiryCTA />
     </>
