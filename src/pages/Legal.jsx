@@ -5,7 +5,6 @@ import { site } from '../data/site';
 
 const UPDATED = '22 November 2026';
 const EMAIL = site.contact.email.value;
-const PHONE = site.contact.phone.value;
 const ADDRESS = site.contact.address.value;
 
 const Mail = () => <a href={site.contact.email.href} className="text-ink underline underline-offset-2 hover:text-accent">{EMAIL}</a>;
@@ -123,7 +122,7 @@ const CONTENT = {
         id: 'grievance',
         title: 'Grievance redressal',
         body: [
-          <>For any question or complaint about how we handle personal data, contact our Grievance Officer at <Mail /> or {PHONE}. We will acknowledge your complaint and resolve it within a reasonable time, and in any case within 90 days. If you are not satisfied with our response, you may approach the Data Protection Board of India.</>,
+          <>For any question or complaint about how we handle personal data, contact our Grievance Officer at <Mail />. We will acknowledge your complaint and resolve it within a reasonable time, and in any case within 90 days. If you are not satisfied with our response, you may approach the Data Protection Board of India.</>,
         ],
       },
       {
@@ -231,7 +230,7 @@ const CONTENT = {
       {
         id: 'contact',
         title: 'Contact',
-        body: [<>Questions about these terms can be sent to <Mail /> or {PHONE}.</>],
+        body: [<>Questions about these terms can be sent to <Mail />.</>],
       },
     ],
   },
@@ -291,7 +290,7 @@ export default function Legal({ kind }) {
           ))}
 
           <div className="mt-6 border-l-2 border-accent bg-white p-6 text-[14px] leading-relaxed text-muted">
-            Questions about this page? Write to <Mail /> or call {PHONE}.
+            Questions about this page? Write to <Mail />.
           </div>
           <Button to="/contact" variant="outline" className="mt-8">Contact us</Button>
         </div>

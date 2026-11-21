@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowRight, Check, Info, Mail, Phone } from 'lucide-react';
+import { ArrowDown, ArrowRight, Check, Info, Mail } from 'lucide-react';
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 import Button from '../Buttons/Button';
 import ProductVisual from '../ProductRender/ProductVisual';
@@ -140,7 +140,6 @@ export default function GymProductDetail({ product: p }) {
               </div>
             </div>
             <ul className="mt-4 grid gap-2 text-[13px] sm:grid-cols-2">
-              <li><a href={site.contact.phone.href} className="flex items-center gap-2 text-charcoal hover:text-ink"><Phone className="h-4 w-4 text-muted" strokeWidth={1.5} aria-hidden="true" />{site.contact.phone.value}</a></li>
               <li><a href={site.contact.email.href} className="flex items-center gap-2 text-charcoal hover:text-ink"><Mail className="h-4 w-4 text-muted" strokeWidth={1.5} aria-hidden="true" />{site.contact.email.value}</a></li>
             </ul>
           </div>

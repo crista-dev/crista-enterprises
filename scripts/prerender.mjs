@@ -129,7 +129,7 @@ Sitemap: ${SITE}/sitemap.xml
 );
 
 /* 4. llms.txt (summary) and llms-full.txt (full detail) for AI assistants */
-const contact = `- Email: ${site.contact.email.value}\n- Phone: ${site.contact.phone.value}\n- Location: ${site.contact.address.value}, India\n- Hours: ${site.contact.hours.value}`;
+const contact = `- Email: ${site.contact.email.value}\n- Location: ${site.contact.address.value}, India\n- Hours: ${site.contact.hours.value}`;
 const groups = [
   ['LED lights (brand: Crista Lights)', products.filter((p) => p.division === 'lighting')],
   ['Outdoor gym equipment', products.filter((p) => p.division === 'gym' && !['playground', 'combo'].includes(p.category))],

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUp, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube, Clock } from 'lucide-react';
+import { ArrowRight, ArrowUp, Facebook, Instagram, Linkedin, Mail, MapPin, Youtube, Clock } from 'lucide-react';
 import Logo from '../Common/Logo';
 import Button from '../Buttons/Button';
 import { footerNav } from '../../data/navigation';
@@ -107,7 +107,6 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-1 lg:col-span-3">
           <Column title="Contact">
             <li className="flex gap-3 text-[14px]"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.email} /></li>
-            <li className="flex gap-3 text-[14px]"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.phone} /></li>
             <li className="flex gap-3 text-[14px]"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.address} /></li>
             <li className="flex gap-3 text-[14px]"><Clock className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.5} aria-hidden="true" /><ContactValue item={contact.hours} /></li>
           </Column>

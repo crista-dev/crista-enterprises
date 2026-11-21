@@ -11,7 +11,6 @@ export const site = {
     'Crista Enterprises supplies commercial and industrial LED lighting and outdoor gym and playground equipment to contractors, institutions, facilities and dealers.',
   contact: {
     email: { value: 'contact@cristaenterprises.com', href: 'mailto:contact@cristaenterprises.com' },
-    phone: { value: '+91 82712 78494', href: 'tel:+918271278494' },
     address: { value: 'Bhopal, Madhya Pradesh' },
     hours: { value: 'Mon – Sat, business hours' },
   },

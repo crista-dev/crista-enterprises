@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowDown, ArrowRight, Gift, Mail, Phone, SearchX } from 'lucide-react';
+import { ArrowDown, ArrowRight, Gift, Mail, SearchX } from 'lucide-react';
 import usePageMeta from '../hooks/usePageMeta';
 import useShortlist from '../hooks/useShortlist';
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs';
@@ -212,7 +212,6 @@ export default function CorporateGifting() {
             </p>
             <ul className="mt-8 space-y-4 border-t border-line pt-6 text-[14px]">
               <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-muted" strokeWidth={1.5} aria-hidden="true" /><a href={site.contact.email.href} className="text-ink hover:text-accent-ink">{site.contact.email.value}</a></li>
-              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-muted" strokeWidth={1.5} aria-hidden="true" /><a href={site.contact.phone.href} className="text-ink hover:text-accent-ink">{site.contact.phone.value}</a></li>
             </ul>
             <p className="mt-8 border-l-2 border-accent pl-4 text-[13px] leading-relaxed text-muted">
               Planning for Diwali? Enquiring a few weeks ahead leaves time for samples, branding approval and dispatch.

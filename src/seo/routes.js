@@ -32,7 +32,6 @@ const organization = {
   logo: abs(LOGO),
   image: abs(DEFAULT_IMAGE),
   email: site.contact.email.value,
-  telephone: site.contact.phone.href.replace('tel:', ''),
   address: { '@type': 'PostalAddress', addressLocality: 'Bhopal', addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
   areaServed: { '@type': 'Country', name: 'India' },
   openingHoursSpecification: {
@@ -43,8 +42,7 @@ const organization = {
     '@type': 'ContactPoint',
     contactType: 'sales',
     email: site.contact.email.value,
-    telephone: site.contact.phone.href.replace('tel:', ''),
-    areaServed: 'IN',
+      areaServed: 'IN',
     availableLanguage: ['English', 'Hindi'],
   },
   brand: [
@@ -217,7 +215,7 @@ export function getRoutes({ hasFile = () => true } = {}) {
     {
       path: '/contact',
       title: 'Contact Crista Enterprises – Request a Quote, Bhopal',
-      description: `Contact Crista Enterprises in Bhopal for quotations, bulk and project orders or dealership. Email ${site.contact.email.value} or call ${site.contact.phone.value}.`,
+      description: `Contact Crista Enterprises in Bhopal for quotations, bulk and project orders or dealership. Email ${site.contact.email.value}.`,
       priority: 0.7,
       jsonLd: [page('ContactPage', '/contact', 'Contact Crista Enterprises', ''), crumbs([{ name: 'Contact', path: '/contact' }])],
     },

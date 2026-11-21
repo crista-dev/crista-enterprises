@@ -13,7 +13,7 @@ export const faqGroups = [
       },
       {
         q: 'Where is Crista Enterprises located?',
-        a: 'Crista Enterprises is based in Bhopal, Madhya Pradesh, India. You can reach the team at contact@cristaenterprises.com or +91 82712 78494, Monday to Saturday during business hours.',
+        a: 'Crista Enterprises is based in Bhopal, Madhya Pradesh, India. You can reach the team by email at contact@cristaenterprises.com, Monday to Saturday during business hours.',
       },
       {
         q: 'How do I get a price or quotation?',

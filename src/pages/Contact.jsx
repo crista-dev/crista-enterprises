@@ -1,13 +1,13 @@
 import { useSearchParams } from 'react-router-dom';
-import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, Mail, MapPin } from 'lucide-react';
 import usePageMeta from '../hooks/usePageMeta';
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs';
 import EnquiryForm from '../components/EnquiryForm/EnquiryForm';
 import { site, ENQUIRY_TYPES } from '../data/site';
 import { getProduct } from '../data/products';
 
-const ICONS = { email: Mail, phone: Phone, address: MapPin, hours: Clock };
-const LABELS = { email: 'Email', phone: 'Phone', address: 'Office', hours: 'Hours' };
+const ICONS = { email: Mail, address: MapPin, hours: Clock };
+const LABELS = { email: 'Email', address: 'Office', hours: 'Hours' };
 
 export default function Contact() {
   usePageMeta('Contact Us', 'Contact Crista Enterprises for quotations, bulk orders, dealer enquiries and product information on commercial lighting and gym equipment.');
