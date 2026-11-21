@@ -25,7 +25,7 @@ export default {
       fontSize: {
         eyebrow: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.14em' }],
       },
-      borderRadius: { DEFAULT: '2px', sm: '2px', md: '4px' },
+      borderRadius: { DEFAULT: '6px', sm: '6px', md: '8px' },
       maxWidth: { site: '1360px' },
       transitionTimingFunction: { brand: 'cubic-bezier(.2,.7,.2,1)' },
     },
