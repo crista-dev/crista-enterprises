@@ -1,5 +1,6 @@
 import usePageMeta from '../hooks/usePageMeta';
 import Hero from '../components/Home/Hero';
+import Statement from '../components/Home/Statement';
 import Intro from '../components/Home/Intro';
 import Divisions from '../components/Home/Divisions';
 import FeaturedLighting from '../components/Home/FeaturedLighting';
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Statement />
       <Intro />
       <Divisions />
       <FeaturedLighting />

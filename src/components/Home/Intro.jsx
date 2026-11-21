@@ -12,11 +12,11 @@ const points = [
 
 export default function Intro() {
   return (
-    <section className="py-20 lg:py-32" aria-labelledby="intro-title">
+    <section className="bg-white py-20 lg:py-32" aria-labelledby="intro-title">
       <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-10">
         <Reveal className="relative lg:col-span-5">
           <SmartImage image="warehouseStock" className="aspect-[4/5] w-full" sizes="(min-width:1024px) 40vw, 100vw" />
-          <SmartImage image="construction" className="absolute -bottom-10 right-[-6%] hidden aspect-square w-[46%] border-[6px] border-paper sm:block" sizes="20vw" />
+          <SmartImage image="construction" className="absolute -bottom-10 right-[-6%] hidden aspect-square w-[46%] border-[6px] border-white sm:block" sizes="20vw" />
         </Reveal>
 
         <div className="lg:col-span-6 lg:col-start-7 lg:pt-6">
