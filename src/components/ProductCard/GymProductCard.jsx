@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import ProductRender from '../ProductRender/ProductRender';
+import ProductVisual from '../ProductRender/ProductVisual';
 import { useQuote } from '../../context/QuoteContext';
 import cn from '../../utils/cn';
 
@@ -26,7 +26,7 @@ export default function GymProductCard({ product: p, className }) {
       )}
 
       <div className="absolute inset-x-[6%] top-[9%] h-[56%] transition-transform duration-700 ease-brand group-hover/card:-translate-y-1 group-hover/card:scale-[1.04]">
-        <ProductRender kind={p.render.kind} size={p.render.size} label={p.name} tone="none" />
+        <ProductVisual product={p} tone="none" />
       </div>
 
       <div className="relative z-[1] p-5">

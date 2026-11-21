@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ArrowRight, Check, Info, Mail, Phone } from 'lucide-react';
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 import Button from '../Buttons/Button';
-import ProductRender from '../ProductRender/ProductRender';
+import ProductVisual from '../ProductRender/ProductVisual';
 import ProductGrid from '../ProductGrid/ProductGrid';
 import EnquiryForm from '../EnquiryForm/EnquiryForm';
 import Reveal from '../Common/Reveal';
@@ -10,7 +10,7 @@ import { DIVISIONS, getRelated } from '../../data/products';
 import { site } from '../../data/site';
 import { useQuote } from '../../context/QuoteContext';
 
-const SERIES = { strength: 'Strength', cardio: 'Cardio', weights: 'Free Weights', accessories: 'Accessories' };
+const SERIES = { cardio: 'Cardio', strength: 'Strength', core: 'Core', bodyweight: 'Bodyweight', playground: 'Play', combo: 'Play Sets' };
 const ease = [0.2, 0.7, 0.2, 1];
 
 const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -69,7 +69,7 @@ export default function GymProductDetail({ product: p }) {
                 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.1 }}
                 className="relative mx-auto mt-6 h-[300px] max-w-[620px] drop-shadow-[0_30px_30px_rgba(0,0,0,0.25)] sm:h-[400px] lg:h-[460px]"
               >
-                <ProductRender kind={p.render.kind} size={p.render.size} label={p.name} tone="none" />
+                <ProductVisual product={p} tone="none" />
               </motion.div>
             </div>
 
@@ -117,7 +117,7 @@ export default function GymProductDetail({ product: p }) {
 
           <p className="mt-8 flex items-start gap-2.5 bg-mist px-4 py-3 text-[13px] leading-relaxed text-charcoal/80">
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted" strokeWidth={1.75} aria-hidden="true" />
-            <span><strong className="font-medium text-ink">Sample specification.</strong> Features and values are indicative placeholders, not verified product data. Final specifications are confirmed in your quotation.</span>
+            <span><strong className="font-medium text-ink">Standard model specification.</strong> Dimensions, colours and site layout are confirmed with each quotation. Custom sizes and colours are available on request.</span>
           </p>
 
           <div className="mt-12">
@@ -153,7 +153,7 @@ export default function GymProductDetail({ product: p }) {
           <div className="wrap">
             <div className="flex flex-wrap items-end justify-between gap-6">
               <h2 className="font-display text-[26px] font-semibold uppercase tracking-[0.02em] sm:text-[32px]">More {series.toLowerCase()} equipment</h2>
-              <Button to={division.path} variant="link" icon={ArrowRight}>View all gym equipment</Button>
+              <Button to={division.path} variant="link" icon={ArrowRight}>View all equipment</Button>
             </div>
             <ProductGrid products={related} cols="sm:grid-cols-2 lg:grid-cols-3" className="mt-10" />
           </div>

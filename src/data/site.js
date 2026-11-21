@@ -6,7 +6,7 @@ export const site = {
   name: 'Crista Enterprises',
   tagline: 'Ideas into impact.',
   description:
-    'Crista Enterprises supplies commercial and industrial LED lighting and commercial gym equipment to contractors, institutions, facilities and dealers.',
+    'Crista Enterprises supplies commercial and industrial LED lighting and outdoor gym and playground equipment to contractors, institutions, facilities and dealers.',
   contact: {
     email: { value: 'contact@cristaenterprises.com', href: 'mailto:contact@cristaenterprises.com' },
     phone: { value: '+91 82712 78494', href: 'tel:+918271278494' },

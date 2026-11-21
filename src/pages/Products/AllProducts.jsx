@@ -10,7 +10,7 @@ import { SORTS } from '../../utils/catalogue';
 const ALL_CATS = [...LIGHTING_CATEGORIES, ...GYM_CATEGORIES];
 
 export default function AllProducts() {
-  usePageMeta('All Products', 'Browse the complete Crista Enterprises range of commercial LED lighting and commercial gym equipment.');
+  usePageMeta('All Products', 'Browse the complete Crista Enterprises range of commercial LED lighting and outdoor gym and playground equipment.');
   return (
     <>
       <section className="border-b border-line">

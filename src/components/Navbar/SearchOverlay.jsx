@@ -6,10 +6,10 @@ import { products } from '../../data/products';
 import { matchesQuery } from '../../utils/catalogue';
 import useLockBody from '../../hooks/useLockBody';
 import useEscape from '../../hooks/useEscape';
-import ProductRender from '../ProductRender/ProductRender';
+import ProductVisual from '../ProductRender/ProductVisual';
 import cn from '../../utils/cn';
 
-const SUGGESTIONS = ['Street light', 'Flood light', 'Solar', 'High bay', 'Treadmill', 'Power rack'];
+const SUGGESTIONS = ['Street light', 'Flood light', 'Solar', 'High bay', 'Outdoor gym', 'Slide'];
 
 export default function SearchOverlay({ open, onClose }) {
   const [q, setQ] = useState('');
@@ -103,7 +103,7 @@ export default function SearchOverlay({ open, onClose }) {
                             onClick={() => go(p.url)}
                             className={cn('flex w-full items-center gap-4 py-3 text-left transition-colors', i === active && 'bg-paper')}
                           >
-                            <span className="relative h-14 w-16 shrink-0 overflow-hidden"><ProductRender kind={p.render.kind} size={p.render.size} label={p.name} /></span>
+                            <span className="relative h-14 w-16 shrink-0 overflow-hidden"><ProductVisual product={p} /></span>
                             <span className="min-w-0 flex-1">
                               <span className="block truncate text-[15px] font-medium text-ink">{p.name}</span>
                               <span className="block truncate text-[13px] text-muted">{p.categoryName} · {p.division === 'lighting' ? 'Crista Lights' : 'Crista Gym Equipment'}</span>

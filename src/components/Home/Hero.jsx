@@ -45,8 +45,8 @@ export default function Hero() {
               className="lg:col-span-5 lg:pl-6"
             >
               <p className="max-w-md text-[16px] leading-relaxed text-white/90 sm:text-[17px]">
-                Commercial lighting and fitness equipment for businesses, institutions and
-                infrastructure projects. One partner from planning to installation.
+                Commercial lighting, outdoor gym and playground equipment for businesses,
+                institutions and public projects. One partner from planning to installation.
               </p>
               <Link
                 to="/products"

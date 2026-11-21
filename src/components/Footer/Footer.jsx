@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-4 lg:col-span-3 lg:pr-6">
           <Logo tone="light" className="h-10" />
           <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-white/60">
-            Crista Enterprises is a B2B supplier of commercial and industrial LED lighting and commercial gym equipment for
+            Crista Enterprises is a B2B supplier of commercial and industrial LED lighting and outdoor gym and playground equipment for
             contractors, institutions, facilities and dealers.
           </p>
           <div className="mt-6 flex flex-wrap gap-2 text-[12px] text-white/60">

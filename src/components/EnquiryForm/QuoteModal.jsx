@@ -5,7 +5,7 @@ import EnquiryForm, { productLabel } from './EnquiryForm';
 import useLockBody from '../../hooks/useLockBody';
 import useEscape from '../../hooks/useEscape';
 import { getProduct } from '../../data/products';
-import ProductRender from '../ProductRender/ProductRender';
+import ProductVisual from '../ProductRender/ProductVisual';
 
 export default function QuoteModal({ open, product, formKey, onClose }) {
   const panelRef = useRef(null);
@@ -59,7 +59,7 @@ export default function QuoteModal({ open, product, formKey, onClose }) {
               </div>
               {p ? (
                 <div className="mt-8 border-t border-white/10 pt-6">
-                  <div className="aspect-[4/3] overflow-hidden"><ProductRender kind={p.render.kind} size={p.render.size} label={p.name} /></div>
+                  <div className="aspect-[4/3] overflow-hidden"><ProductVisual product={p} className="bg-white/95" /></div>
                   <p className="mt-4 text-[12px] uppercase tracking-[0.14em] text-white/45">{p.categoryName}</p>
                   <p className="mt-1 font-display text-lg">{p.name}</p>
                 </div>

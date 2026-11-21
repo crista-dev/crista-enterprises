@@ -23,15 +23,15 @@ const DIVS = [
   {
     n: 'Division 02',
     title: 'Crista Gym Equipment',
-    text: 'Commercial fitness equipment for gyms, hotels, schools and institutional facilities.',
+    text: 'Outdoor gym and playground equipment for parks, residential societies, schools and municipal projects.',
     image: 'gymWide',
     to: '/products/gym-equipment',
     cta: 'Explore Gym Equipment',
     links: [
-      { label: 'Strength Equipment', to: '/products/gym-equipment?category=strength' },
-      { label: 'Cardio Equipment', to: '/products/gym-equipment?category=cardio' },
-      { label: 'Gym Accessories', to: '/products/gym-equipment?category=accessories' },
-      { label: 'Commercial Fitness Solutions', to: '/products/gym-equipment' },
+      { label: 'Cardio Stations', to: '/products/gym-equipment?category=cardio' },
+      { label: 'Strength Stations', to: '/products/gym-equipment?category=strength' },
+      { label: 'Playground Equipment', to: '/products/gym-equipment?category=playground' },
+      { label: 'Play Combination Sets', to: '/products/gym-equipment?category=combo' },
     ],
   },
 ];

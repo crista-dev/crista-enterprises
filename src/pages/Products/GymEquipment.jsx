@@ -11,7 +11,7 @@ import { SORTS } from '../../utils/catalogue';
 const products = getByDivision('gym');
 
 export default function GymEquipment() {
-  usePageMeta('Commercial Fitness Equipment', 'Commercial strength, cardio and free-weight equipment plus gym accessories for fitness centres, hotels, schools and institutions.');
+  usePageMeta('Outdoor Gym & Playground Equipment', 'Outdoor gym stations and playground equipment with SKF bearings, ISI-marked GI pipe and powder-coated finish for parks, societies, schools and municipal projects.');
   return (
     <>
       <section className="border-b border-line bg-white">
@@ -20,8 +20,8 @@ export default function GymEquipment() {
             <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Products', to: '/products' }, { label: 'Crista Gym Equipment' }]} />
             <div className="py-14 lg:py-20">
               <p className="flex items-center gap-3 text-eyebrow font-medium uppercase text-muted"><span className="h-px w-6 bg-accent" aria-hidden="true" />Crista Gym Equipment · Division 02</p>
-              <h1 className="display-lg mt-6">Commercial Fitness Equipment</h1>
-              <p className="lede mt-6 max-w-lg">Equipment solutions for modern gyms, fitness centres and institutional facilities.</p>
+              <h1 className="display-lg mt-6">Outdoor Gym &amp; Playground Equipment</h1>
+              <p className="lede mt-6 max-w-lg">Weather-ready outdoor gym stations and playground equipment for parks, residential societies, schools and municipal projects.</p>
             </div>
             <ul className="grid grid-cols-2 border-t border-line">
               {GYM_CATEGORIES.map((c, i) => (
@@ -48,7 +48,7 @@ export default function GymEquipment() {
 
       <section className="wrap pb-6">
         <p className="border-t border-line pt-5 text-[13px] text-muted">
-          Dimensions, capacities and materials shown are sample data for reference. Final specifications are confirmed with each quotation.
+          All outdoor equipment is built on ISI-marked GI pipe with SKF bearings and a weather-resistant powder-coated finish. Dimensions, colours and site layout are confirmed with each quotation.
         </p>
       </section>
       <EnquiryCTA image="gymWide" />

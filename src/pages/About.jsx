@@ -18,7 +18,7 @@ const APPROACH = [
 ];
 
 export default function About() {
-  usePageMeta('About Us', 'Crista Enterprises is a B2B supplier of commercial LED lighting and commercial gym equipment. Learn about our approach, divisions and the industries we serve.');
+  usePageMeta('About Us', 'Crista Enterprises is a B2B supplier of commercial LED lighting and outdoor gym and playground equipment. Learn about our approach, divisions and the industries we serve.');
   return (
     <>
       <section className="border-b border-line">
@@ -32,7 +32,7 @@ export default function About() {
             <div className="flex flex-col justify-end lg:col-span-4 lg:col-start-9">
               <p className="text-[17px] leading-relaxed text-charcoal/80">
                 Crista Enterprises is a business-to-business supplier with two focused divisions: <strong className="font-medium text-ink">Crista Lights</strong>,
-                for commercial and industrial LED lighting, and <strong className="font-medium text-ink">Crista Gym Equipment</strong>, for commercial fitness equipment.
+                for commercial and industrial LED lighting, and <strong className="font-medium text-ink">Crista Gym Equipment</strong>, for outdoor gym and playground equipment.
               </p>
             </div>
           </div>

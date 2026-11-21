@@ -4,7 +4,7 @@ import Button from '../Buttons/Button';
 import { ArrowRight } from 'lucide-react';
 
 const points = [
-  { t: 'Two focused divisions', d: 'Commercial LED lighting and commercial gym equipment under one supplier.' },
+  { t: 'Two focused divisions', d: 'Commercial LED lighting and outdoor gym and playground equipment under one supplier.' },
   { t: 'Built for business buyers', d: 'Quotations shaped around specification, quantity and project timelines.' },
   { t: 'Single-unit to bulk', d: 'From individual requirements to project and distributor volumes.' },
   { t: 'One point of contact', d: 'A dedicated enquiry process from first question to delivery planning.' },
@@ -27,8 +27,8 @@ export default function Intro() {
             </div>
             <h2 id="intro-title" className="display-lg mt-8">Products That Power Progress.</h2>
             <p className="mt-6 text-[17px] leading-relaxed text-charcoal/80">
-              Crista Enterprises is a business-to-business supplier of commercial and industrial lighting and commercial gym
-              equipment. We work with contractors, facility owners, institutions and dealers who need dependable products,
+              Crista Enterprises is a business-to-business supplier of commercial and industrial lighting and outdoor gym and
+              playground equipment. We work with contractors, facility owners, institutions and dealers who need dependable products,
               clear specifications and a supplier that can respond to project-scale requirements.
             </p>
           </Reveal>

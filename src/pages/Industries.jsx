@@ -13,9 +13,10 @@ const productLink = (name) => {
     'LED Flood Lights': '/products/lighting?category=flood',
     'Solar Street Lights': '/products/lighting?category=solar',
     'LED High Bay': '/products/lighting?category=industrial',
-    'Strength Equipment': '/products/gym-equipment?category=strength',
-    'Cardio Equipment': '/products/gym-equipment?category=cardio',
-    'Weight Training': '/products/gym-equipment?category=weights',
+    'Outdoor Gym Equipment': '/products/gym-equipment',
+    'Strength Stations': '/products/gym-equipment?category=strength',
+    'Cardio Stations': '/products/gym-equipment?category=cardio',
+    'Playground Equipment': '/products/gym-equipment?category=playground',
   };
   return map[name] ?? '/products';
 };
