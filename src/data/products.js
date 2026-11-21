@@ -209,7 +209,7 @@ const gym = (p) => {
 
   return {
     division: 'gym',
-    image: `/products/gym/${p.slug}.webp`,
+    image: `/gym-equipments/${p.slug}.webp`,
     render: { kind: 'none' },
     ...p,
     specs,
