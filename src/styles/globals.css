@@ -9,7 +9,7 @@
   --c-text: #202124;
   --c-muted: #777d83;
   --c-line: #e5e7e8;
-  --c-paper: #f7f7f5;      /* warm off-white */
+  --c-paper: #e9ebee;      /* warm off-white */
   --c-mist: #f0f1f0;       /* secondary background */
   --c-white: #ffffff;
 
@@ -25,7 +25,7 @@
   --c-text-rgb: 32 33 36;
   --c-muted-rgb: 119 125 131;
   --c-line-rgb: 229 231 232;
-  --c-paper-rgb: 247 247 245;
+  --c-paper-rgb: 233 235 238;
   --c-mist-rgb: 240 241 240;
   --c-accent-rgb: 47 197 106;
   --c-accent-ink-rgb: 13 138 75;
