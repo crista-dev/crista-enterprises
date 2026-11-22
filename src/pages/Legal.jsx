@@ -158,7 +158,7 @@ const CONTENT = {
         body: [
           {
             list: [
-              'Prices are not listed on this website. All prices are provided by quotation on request.',
+              'Prices shown on this website are in Indian rupees and exclude GST. Products without a listed price are quoted on request.',
               'Each quotation states its validity period, scope of supply, taxes, delivery and payment terms. Unless stated otherwise, prices are exclusive of GST, freight and installation.',
               'An order is binding only after we confirm it in writing and, where applicable, receive the agreed advance payment.',
               'Custom sizes, colours or configurations may require approval of drawings or samples before production and may not be cancellable once production starts.',

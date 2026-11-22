@@ -99,7 +99,7 @@ function productEntry(p, hasFile) {
     ? `${p.name} ${p.model ? `(${p.model}) ` : ''}– IP66, ${spec('Lumen output (nominal)')?.replace('≈ ', '')} | Crista Lights`
     : `${p.name} – Outdoor ${p.category === 'playground' || p.category === 'combo' ? 'Playground' : 'Gym'} Equipment | Crista`;
   const description = isLight
-    ? `${p.name} by Crista: ${spec('Luminous efficacy')}, ${spec('Light colour') ?? spec('Colour temperature')}, IP66 die-cast aluminium, ${spec('Surge protection')} surge protection, 2-year warranty. ${p.sensor ? 'Automatic dusk-to-dawn sensor. ' : ''}Request a quote from Crista Enterprises, Bhopal.`
+    ? `${p.name} by Crista${p.priceLabel ? ` at ${p.priceLabel}` : ''}: ${spec('Luminous efficacy')}, ${spec('Light colour') ?? spec('Colour temperature')}, IP66 die-cast aluminium, ${spec('Surge protection')} surge protection, 2-year warranty. ${p.sensor ? 'Automatic dusk-to-dawn sensor. ' : ''}Request a quote from Crista Enterprises, Bhopal.`
     : `${p.name}: ${p.summary.replace(/\.$/, '')}. ${p.usage ? `For ${p.usage.toLowerCase()}. ` : ''}ISI-marked GI pipe, weather-resistant powder coating. Request a quote from Crista Enterprises, Bhopal.`;
 
   const divisionPath = isLight ? '/products/lighting' : '/products/gym-equipment';
@@ -124,7 +124,17 @@ function productEntry(p, hasFile) {
         manufacturer: { '@id': ORG_ID },
         category: p.categoryName,
         url: abs(p.url),
-        additionalProperty: p.specs.map((s) => ({ '@type': 'PropertyValue', name: s.label, value: s.value })),
+        additionalProperty: p.specs.filter((s) => s.label !== 'Price').map((s) => ({ '@type': 'PropertyValue', name: s.label, value: s.value })),
+        ...(p.price && {
+          offers: {
+            '@type': 'Offer',
+            url: abs(p.url),
+            price: String(p.price),
+            priceCurrency: 'INR',
+            priceSpecification: { '@type': 'UnitPriceSpecification', price: String(p.price), priceCurrency: 'INR', valueAddedTaxIncluded: false },
+            seller: { '@id': ORG_ID },
+          },
+        }),
       },
       crumbs([{ name: divisionName, path: divisionPath }, { name: p.name, path: p.url }]),
     ],
@@ -154,7 +164,7 @@ export function getRoutes({ hasFile = () => true } = {}) {
     },
     {
       path: '/products/lighting',
-      title: 'LED Street Lights & Flood Lights – 50W, 100W, 200W | Crista Lights',
+      title: 'LED Street Lights & Flood Lights – 50W, 100W, 200W, from ₹2,500 | Crista Lights',
       description: `Crista LED street lights (50W, 100W) with dusk-to-dawn sensors and a 200W LED flood light. IP66 die-cast aluminium, up to 130 lm/W, surge protected, 2-year warranty. ${LIGHTING_CATEGORIES.map((c) => c.name).join(', ')}.`,
       priority: 0.9,
       jsonLd: [page('CollectionPage', '/products/lighting', 'Crista Lights', ''), itemList(lights), crumbs([{ name: 'Crista Lights', path: '/products/lighting' }])],

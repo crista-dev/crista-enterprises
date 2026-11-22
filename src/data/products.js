@@ -58,8 +58,10 @@ const COMMON_LIGHT = {
 const light = (p) => {
   const c = { ...COMMON_LIGHT, ...p };
   const lumens = (c.wattage * c.efficacy).toLocaleString('en-IN');
+  const priceLabel = c.price ? `₹${c.price.toLocaleString('en-IN')} + GST` : null;
   const specs = [
     { label: 'Model no.', value: c.model },
+    priceLabel && { label: 'Price', value: priceLabel },
     { label: 'Power', value: `${c.wattage}W` },
     { label: 'LED type', value: c.ledType },
     { label: 'No. of LEDs', value: c.ledCount },
@@ -88,6 +90,7 @@ const light = (p) => {
     division: 'lighting',
     render: { kind: c.category === 'flood' ? 'flood' : 'street', size: c.wattage },
     ...c,
+    priceLabel,
     specs,
     highlights: [
       { label: 'Output', value: `≈ ${lumens} lm` },
@@ -102,6 +105,7 @@ export const lightingProducts = [
     slug: '50w-led-street-light',
     name: '50W LED Street Light',
     model: 'CLCE50A',
+    price: 2500,
     category: 'street',
     type: 'Pole mount',
     wattage: 50,
@@ -135,6 +139,7 @@ export const lightingProducts = [
     slug: '100w-led-street-light',
     name: '100W LED Street Light',
     model: 'CLCE100A',
+    price: 4000,
     category: 'street',
     type: 'Pole mount',
     wattage: 100,
@@ -168,6 +173,7 @@ export const lightingProducts = [
     slug: '200w-led-flood-light',
     name: '200W LED Flood Light',
     model: 'CLCE200A',
+    price: 7000,
     category: 'flood',
     type: 'Bracket mount',
     wattage: 200,

@@ -35,6 +35,11 @@ export default function GymProductCard({ product: p, className }) {
             {p.name}
           </Link>
         </h3>
+        {p.priceLabel && (
+          <p className="mt-1 text-[15px] font-semibold text-white">
+            {p.priceLabel.replace(' + GST', '')} <span className="text-[13px] font-normal text-white/70">+ GST</span>
+          </p>
+        )}
         <div className="mt-2 flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 text-[13px] text-white/75 transition-colors group-hover/card:text-accent">
             View details <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/card:translate-x-0.5" aria-hidden="true" />

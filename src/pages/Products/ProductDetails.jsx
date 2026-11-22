@@ -21,7 +21,7 @@ function SampleNotice({ className }) {
   );
 }
 
-const KEY_SPECS = ['Power', 'Lumen output (nominal)', 'Light colour', 'Colour temperature', 'Sensor', 'IP protection', 'Surge protection', 'Warranty'];
+const KEY_SPECS = ['Price', 'Power', 'Lumen output (nominal)', 'Light colour', 'Colour temperature', 'Sensor', 'IP protection', 'Surge protection', 'Warranty'];
 
 export default function ProductDetails() {
   const { slug } = useParams();
@@ -34,7 +34,7 @@ export default function ProductDetails() {
 
   const division = DIVISIONS[p.division];
   const related = getRelated(p, 4);
-  const keySpecs = p.specs.filter((s) => KEY_SPECS.includes(s.label)).slice(0, 6);
+  const keySpecs = p.specs.filter((s) => KEY_SPECS.includes(s.label)).slice(0, 7);
 
   return (
     <>

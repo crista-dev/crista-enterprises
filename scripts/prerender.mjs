@@ -155,7 +155,7 @@ const pagesList = `## Key pages
 `;
 const short = [
   intro,
-  ...groups.map(([t, list]) => `## ${t}\n${list.map((p) => `- [${p.name}](${SITE}${p.url})${p.model ? ` (model ${p.model})` : ''}: ${p.summary}`).join('\n')}\n`),
+  ...groups.map(([t, list]) => `## ${t}\n${list.map((p) => `- [${p.name}](${SITE}${p.url})${p.model ? ` (model ${p.model})` : ''}${p.priceLabel ? `, ${p.priceLabel}` : ''}: ${p.summary}`).join('\n')}\n`),
   `## Corporate gift hampers\n${hampers.map((h) => `- ${h.name} (${collectionName(h.collection)}): ${h.contents.join(', ')}`).join('\n')}\n`,
   pagesList,
   `## More detail\n- [Full product specifications and FAQs](${SITE}/llms-full.txt)\n`,

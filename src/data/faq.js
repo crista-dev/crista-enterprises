@@ -17,7 +17,7 @@ export const faqGroups = [
       },
       {
         q: 'How do I get a price or quotation?',
-        a: 'Prices are given by quotation, based on the product, quantity, specification and delivery location. Use the Request a Quote button on any product or the contact form, and the team will prepare a quotation. Unless stated otherwise, quoted prices are exclusive of GST, freight and installation.',
+        a: 'Crista LED lights have listed prices: the 50W street light is ₹2,500, the 100W street light is ₹4,000 and the 200W flood light is ₹7,000, all plus GST. Outdoor gym and playground equipment is priced by quotation, based on the product, quantity, specification and delivery location. Use the Request a Quote button on any product or the contact form, and the team will prepare a quotation. Unless stated otherwise, quoted prices are exclusive of GST, freight and installation.',
       },
       {
         q: 'Do you take bulk and project orders?',

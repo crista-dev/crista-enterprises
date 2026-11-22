@@ -49,7 +49,7 @@ export default function Lighting() {
 
       <section className="wrap pb-6">
         <p className="border-t border-line pt-5 text-[13px] text-muted">
-          Specifications are as per Crista product specification sheets. Lumen output is nominal. Final specifications and warranty terms are confirmed in each quotation.
+          Prices are in Indian rupees and exclude GST. Specifications are as per Crista product specification sheets. Lumen output is nominal. Final specifications and warranty terms are confirmed in each quotation.
         </p>
       </section>
       <EnquiryCTA image="construction" />

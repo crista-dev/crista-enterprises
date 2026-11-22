@@ -13,7 +13,7 @@ const sets = play.filter((p) => p.category === 'combo').length;
 
 const FACTS = [
   { k: 'Based in', v: 'Bhopal, Madhya Pradesh' },
-  { k: 'LED lights', v: `${lights.map((p) => `${p.wattage}W`).join(', ')} · IP66, 2-year warranty` },
+  { k: 'LED lights', v: `${lights.map((p) => `${p.wattage}W`).join(', ')} · from ₹${Math.min(...lights.map((p) => p.price ?? Infinity)).toLocaleString('en-IN')} + GST · IP66, 2-year warranty` },
   { k: 'Outdoor gym', v: `${gym.length} stations · cardio, strength, core and bodyweight` },
   { k: 'Playground', v: `${play.length} items, including ${sets} play sets` },
   { k: 'Corporate gifting', v: `${hampers.length} hampers for festivals, onboarding and clients` },
