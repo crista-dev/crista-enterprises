@@ -9,7 +9,7 @@ const DIVS = [
   {
     title: 'Crista Lights',
     text: 'LED street lights and flood lights for roads, campuses, grounds and facilities.',
-    image: 'streetNight',
+    image: 'lightsDivision',
     to: '/products/lighting',
     cta: 'View all lights',
     links: [
