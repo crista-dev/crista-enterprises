@@ -183,9 +183,9 @@ export const lightingProducts = [
     surge: '10 kV',
     life: '50,000 burning hours',
     ledMake: 'Manlux LEDs',
-    summary: 'High-output 5700K flood light for grounds, yards, façades and perimeter security.',
+    summary: 'High-output 5700K flood light for grounds, yards, building exteriors and perimeter security.',
     description:
-      'The Crista 200W LED Flood Light delivers around 26,000 lumens of crisp 5700K daylight from 5W 5050 high-power LEDs at 130 lm/W. It is designed for large areas that need strong, uniform light, such as sports grounds, yards, building façades and perimeters. Heavy 10 kV surge protection, an IP66 die-cast aluminium body and a 50,000-hour rated life make it suited to demanding outdoor sites.',
+      'The Crista 200W LED Flood Light delivers around 26,000 lumens of crisp 5700K daylight from 5W 5050 high-power LEDs at 130 lm/W. It is designed for large areas that need strong, uniform light, such as sports grounds, yards, building exteriors and perimeters. Heavy 10 kV surge protection, an IP66 die-cast aluminium body and a 50,000-hour rated life make it suited to demanding outdoor sites.',
     features: [
       'High 130 lm/W efficacy, around 26,000 lumens',
       '5700K cool daylight for clear visibility over large areas',
@@ -194,7 +194,7 @@ export const lightingProducts = [
       'Rated life of 50,000 burning hours',
       '2-year warranty',
     ],
-    applications: ['Sports grounds and stadiums', 'Yards and loading areas', 'Building façades', 'Perimeter and security lighting'],
+    applications: ['Sports grounds and stadiums', 'Yards and loading areas', 'Building exteriors', 'Perimeter and security lighting'],
   }),
 ];
 

@@ -24,7 +24,7 @@ export const industries = [
     id: 'commercial',
     name: 'Commercial Establishments',
     image: 'commercial',
-    summary: 'Façade, parking and campus lighting for offices, retail and mixed-use sites.',
+    summary: 'Exterior, parking and campus lighting for offices, shops and commercial complexes.',
     products: ['LED Flood Lights', 'LED Street Lights'],
   },
   {
