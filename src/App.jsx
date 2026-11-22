@@ -4,6 +4,7 @@ import { MotionConfig } from 'framer-motion';
 import MainLayout from './layouts/MainLayout';
 import { QuoteProvider } from './context/QuoteContext';
 import Home from './pages/Home';
+import PageLoader from './components/Common/PageLoader';
 
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -17,15 +18,6 @@ const Legal = lazy(() => import('./pages/Legal'));
 const Faq = lazy(() => import('./pages/Faq'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-function PageLoader() {
-  return (
-    <div className="wrap flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading page">
-      <span className="h-[2px] w-24 overflow-hidden bg-line">
-        <span className="block h-full w-1/2 animate-pulse bg-ink" />
-      </span>
-    </div>
-  );
-}
 
 export default function App() {
   return (

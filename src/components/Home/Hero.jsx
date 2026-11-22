@@ -9,16 +9,23 @@ export default function Hero() {
     <section aria-labelledby="hero-title" className="bg-paper p-2.5 sm:p-4">
       <div className="relative isolate overflow-hidden rounded-lg bg-ink text-white sm:rounded-xl">
         {/* Background: phone image below 768px, desktop image above */}
-        <picture className="absolute inset-0 -z-20">
-          <source media="(max-width: 767px)" srcSet="/crista-enterprises-bg-phone.png" />
-          <img
-            src="/crista-enterprises-bg.png"
-            alt=""
-            loading="eager"
-            decoding="async"
-            className="h-full w-full object-cover object-center"
-          />
-        </picture>
+        <motion.div
+          className="absolute inset-0 -z-20"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2.2, ease }}
+        >
+          <picture className="absolute inset-0">
+            <source media="(max-width: 767px)" srcSet="/crista-enterprises-bg-phone.png" />
+            <img
+              src="/crista-enterprises-bg.png"
+              alt=""
+              loading="eager"
+              decoding="async"
+              className="h-full w-full object-cover object-center"
+            />
+          </picture>
+        </motion.div>
 
         {/* Soft overlays so text stays readable */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
@@ -26,22 +33,29 @@ export default function Hero() {
 
         <div className="flex min-h-[calc(100svh-var(--header-h)-16px)] flex-col justify-end px-6 pb-10 pt-32 sm:px-12 sm:pb-14 lg:min-h-[min(880px,calc(100svh-var(--header-h)-24px))] lg:px-20 lg:pb-20">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-            <motion.h1
+            <h1
               id="hero-title"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease }}
               className="font-display text-[2rem] font-normal uppercase leading-[1.08] tracking-[-0.005em] text-white sm:text-[2.75rem] lg:col-span-7 lg:text-[3.5rem]"
             >
-              Powering spaces
-              <br />
-              that perform
-            </motion.h1>
+              {/* Each line slides up from behind a mask, one after the other */}
+              {['Powering spaces', 'that perform'].map((line, i) => (
+                <span key={line} className="block overflow-hidden pb-[0.06em]">
+                  <motion.span
+                    className="block"
+                    initial={{ y: '110%' }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.95, ease, delay: 0.25 + i * 0.14 }}
+                  >
+                    {line}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.2 }}
+              transition={{ duration: 0.8, ease, delay: 0.7 }}
               className="lg:col-span-5 lg:pl-6"
             >
               <p className="max-w-md text-[16px] leading-relaxed text-white/90 sm:text-[17px]">
